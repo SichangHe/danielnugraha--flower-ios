@@ -5,30 +5,30 @@
 //  Created by Daniel Nugraha on 24.05.23.
 //
 
-import Foundation
 import CoreML
 import flwr
+import Foundation
 
 public class AppLogic: ObservableObject {
     @Published var hostname: String = ""
     @Published var port: Int = 8080
     @Published var taskStatus: TaskStatus = .idle
-    
+
     public func startFlowerClient() {
         taskStatus = .preparing(info: "Preparing flower client")
         DispatchQueue.global(qos: .default).async {
-            let trainBatchProvider = DataLoader.trainBatchProvider() { count in
+            let trainBatchProvider = DataLoader.trainBatchProvider { count in
                 DispatchQueue.main.async {
                     self.taskStatus = .preparing(info: "Preparing train dataset: \(count)")
                 }
             }
-            let testBatchProvider = DataLoader.testBatchProvider() { count in
+            let testBatchProvider = DataLoader.testBatchProvider { count in
                 DispatchQueue.main.async {
                     self.taskStatus = .preparing(info: "Preparing test dataset: \(count)")
                 }
             }
             let dataLoader = MLDataLoader(trainBatchProvider: trainBatchProvider, testBatchProvider: testBatchProvider)
-            
+
             if let url = Bundle.main.url(forResource: "MNIST_Model", withExtension: "mlmodel") {
                 do {
                     print(url)
@@ -36,6 +36,7 @@ public class AppLogic: ObservableObject {
                     print(compiledModelUrl)
                     let modelInspect = try MLModelInspect(serializedData: Data(contentsOf: url))
                     let layerWrappers = modelInspect.getLayerWrappers()
+                    print("\(layerWrappers)")
                     let mlFlwrClient = MLFlwrClient(layerWrappers: layerWrappers,
                                                     dataLoader: dataLoader,
                                                     compiledModelUrl: compiledModelUrl)
@@ -61,7 +62,7 @@ public enum TaskStatus: Equatable {
     case preparing(info: String)
     case ongoing(info: String)
     case completed(info: String)
-    
+
     var description: String {
         switch self {
         case .idle:
@@ -74,9 +75,9 @@ public enum TaskStatus: Equatable {
             return info
         }
     }
-    
+
     public static func ==(lhs: TaskStatus, rhs: TaskStatus) -> Bool {
-        switch(lhs, rhs) {
+        switch (lhs, rhs) {
         case (.idle, .idle):
             return true
         case (.ongoing(_), .ongoing(_)):

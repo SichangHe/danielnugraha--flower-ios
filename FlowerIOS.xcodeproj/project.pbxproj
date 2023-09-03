@@ -49,9 +49,12 @@
 		21A30E872A1E240C00BEBAD6 /* Scaler.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A30E2F2A1E240B00BEBAD6 /* Scaler.pb.swift */; };
 		21A30E882A1E240C00BEBAD6 /* MNIST_train.csv.lzfse in Resources */ = {isa = PBXBuildFile; fileRef = 21A30E322A1E240C00BEBAD6 /* MNIST_train.csv.lzfse */; };
 		21A30E892A1E240C00BEBAD6 /* MNIST_test.csv.lzfse in Resources */ = {isa = PBXBuildFile; fileRef = 21A30E332A1E240C00BEBAD6 /* MNIST_test.csv.lzfse */; };
-		21A30E8E2A1E24EF00BEBAD6 /* flwr in Frameworks */ = {isa = PBXBuildFile; productRef = 21A30E8D2A1E24EF00BEBAD6 /* flwr */; };
 		21A30E922A1E2A2C00BEBAD6 /* MNIST_Model.mlmodel in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21A30E342A1E240C00BEBAD6 /* MNIST_Model.mlmodel */; };
 		21A30E942A1E2F3C00BEBAD6 /* AppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A30E932A1E2F3C00BEBAD6 /* AppLogic.swift */; };
+		3F461A0B2AA49C1F00912861 /* NumPy-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3F461A0A2AA49C1F00912861 /* NumPy-iOS */; };
+		3F461A0E2AA49C4200912861 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3F461A0D2AA49C4200912861 /* PythonKit */; };
+		3FA1913C2AA460420021A3D5 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 3FA1913B2AA460420021A3D5 /* GRPC */; };
+		3FB63E4A2AA45DA400CFC159 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 3FB63E492AA45DA400CFC159 /* SwiftProtobuf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -113,6 +116,17 @@
 		21A30E332A1E240C00BEBAD6 /* MNIST_test.csv.lzfse */ = {isa = PBXFileReference; lastKnownFileType = file; path = MNIST_test.csv.lzfse; sourceTree = "<group>"; };
 		21A30E342A1E240C00BEBAD6 /* MNIST_Model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MNIST_Model.mlmodel; sourceTree = "<group>"; };
 		21A30E932A1E2F3C00BEBAD6 /* AppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogic.swift; sourceTree = "<group>"; };
+		3F4619FB2AA49BDA00912861 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		3F4619FD2AA49BDA00912861 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
+		3F4619FE2AA49BDA00912861 /* Serde.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serde.swift; sourceTree = "<group>"; };
+		3F4619FF2AA49BDA00912861 /* Typing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typing.swift; sourceTree = "<group>"; };
+		3F461A002AA49BDA00912861 /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
+		3F461A022AA49BDB00912861 /* MLFlwrClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFlwrClient.swift; sourceTree = "<group>"; };
+		3F461A032AA49BDB00912861 /* MLFlwrClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLFlwrClientModel.swift; sourceTree = "<group>"; };
+		3F461A052AA49BDB00912861 /* MessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
+		3F461A062AA49BDB00912861 /* InterceptorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorExtension.swift; sourceTree = "<group>"; };
+		3F461A072AA49BDB00912861 /* Interceptors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptors.swift; sourceTree = "<group>"; };
+		3F461A082AA49BDB00912861 /* FlwrGRPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlwrGRPC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +134,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21A30E8E2A1E24EF00BEBAD6 /* flwr in Frameworks */,
+				3FA1913C2AA460420021A3D5 /* GRPC in Frameworks */,
+				3F461A0B2AA49C1F00912861 /* NumPy-iOS in Frameworks */,
+				3FB63E4A2AA45DA400CFC159 /* SwiftProtobuf in Frameworks */,
+				3F461A0E2AA49C4200912861 /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +163,10 @@
 		21A30DC52A1E23AE00BEBAD6 /* FlowerIOS */ = {
 			isa = PBXGroup;
 			children = (
+				3F4619FA2AA49BDA00912861 /* Client */,
+				3F4619FC2AA49BDA00912861 /* Common */,
+				3F461A012AA49BDB00912861 /* CoreML */,
+				3F461A042AA49BDB00912861 /* GRPC */,
 				21A30E8B2A1E241300BEBAD6 /* Utils */,
 				21A30DC62A1E23AE00BEBAD6 /* FlowerIOSApp.swift */,
 				21A30DC82A1E23AE00BEBAD6 /* MainView.swift */,
@@ -234,6 +255,45 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		3F4619FA2AA49BDA00912861 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				3F4619FB2AA49BDA00912861 /* Client.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		3F4619FC2AA49BDA00912861 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3F4619FD2AA49BDA00912861 /* Parameter.swift */,
+				3F4619FE2AA49BDA00912861 /* Serde.swift */,
+				3F4619FF2AA49BDA00912861 /* Typing.swift */,
+				3F461A002AA49BDA00912861 /* Exception.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3F461A012AA49BDB00912861 /* CoreML */ = {
+			isa = PBXGroup;
+			children = (
+				3F461A022AA49BDB00912861 /* MLFlwrClient.swift */,
+				3F461A032AA49BDB00912861 /* MLFlwrClientModel.swift */,
+			);
+			path = CoreML;
+			sourceTree = "<group>";
+		};
+		3F461A042AA49BDB00912861 /* GRPC */ = {
+			isa = PBXGroup;
+			children = (
+				3F461A052AA49BDB00912861 /* MessageHandler.swift */,
+				3F461A062AA49BDB00912861 /* InterceptorExtension.swift */,
+				3F461A072AA49BDB00912861 /* Interceptors.swift */,
+				3F461A082AA49BDB00912861 /* FlwrGRPC.swift */,
+			);
+			path = GRPC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,7 +312,10 @@
 			);
 			name = FlowerIOS;
 			packageProductDependencies = (
-				21A30E8D2A1E24EF00BEBAD6 /* flwr */,
+				3FB63E492AA45DA400CFC159 /* SwiftProtobuf */,
+				3FA1913B2AA460420021A3D5 /* GRPC */,
+				3F461A0A2AA49C1F00912861 /* NumPy-iOS */,
+				3F461A0D2AA49C4200912861 /* PythonKit */,
 			);
 			productName = FlowerIOS;
 			productReference = 21A30DC32A1E23AE00BEBAD6 /* FlowerIOS.app */;
@@ -283,7 +346,10 @@
 			);
 			mainGroup = 21A30DBA2A1E23AE00BEBAD6;
 			packageReferences = (
-				21A30E8C2A1E24EF00BEBAD6 /* XCRemoteSwiftPackageReference "flower-swift" */,
+				3FB63E482AA45DA400CFC159 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				3FA1913A2AA460420021A3D5 /* XCRemoteSwiftPackageReference "grpc-swift" */,
+				3F461A092AA49C1F00912861 /* XCRemoteSwiftPackageReference "NumPy-iOS" */,
+				3F461A0C2AA49C4200912861 /* XCRemoteSwiftPackageReference "PythonKit" */,
 			);
 			productRefGroup = 21A30DC42A1E23AE00BEBAD6 /* Products */;
 			projectDirPath = "";
@@ -556,21 +622,60 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		21A30E8C2A1E24EF00BEBAD6 /* XCRemoteSwiftPackageReference "flower-swift" */ = {
+		3F461A092AA49C1F00912861 /* XCRemoteSwiftPackageReference "NumPy-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/adap/flower-swift.git";
+			repositoryURL = "https://github.com/kewlbear/NumPy-iOS.git";
 			requirement = {
-				branch = main;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.31509;
+			};
+		};
+		3F461A0C2AA49C4200912861 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit.git";
+			requirement = {
+				branch = master;
 				kind = branch;
+			};
+		};
+		3FA1913A2AA460420021A3D5 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grpc/grpc-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		3FB63E482AA45DA400CFC159 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		21A30E8D2A1E24EF00BEBAD6 /* flwr */ = {
+		3F461A0A2AA49C1F00912861 /* NumPy-iOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 21A30E8C2A1E24EF00BEBAD6 /* XCRemoteSwiftPackageReference "flower-swift" */;
-			productName = flwr;
+			package = 3F461A092AA49C1F00912861 /* XCRemoteSwiftPackageReference "NumPy-iOS" */;
+			productName = "NumPy-iOS";
+		};
+		3F461A0D2AA49C4200912861 /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F461A0C2AA49C4200912861 /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
+		3FA1913B2AA460420021A3D5 /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FA1913A2AA460420021A3D5 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		3FB63E492AA45DA400CFC159 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FB63E482AA45DA400CFC159 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
