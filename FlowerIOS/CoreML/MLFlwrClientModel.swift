@@ -65,6 +65,9 @@ public class MLParameter {
     /// - Returns: Specification of the machine learning model configuration in the CoreML structure.
     public func parametersToWeights(parameters: Parameters) -> MLModelConfiguration {
         let config = MLModelConfiguration()
+        if config.parameters == nil {
+            config.parameters = [:]
+        }
 
         guard parameters.tensors.count == layerWrappers.count else {
             log.info("parameters received is not valid")
@@ -73,24 +76,25 @@ public class MLParameter {
 
         for (index, data) in parameters.tensors.enumerated() {
             let expectedNumberOfElements = layerWrappers[index].shape.map { Int($0) }.reduce(1, *)
-            if let weightsArray = parameterConverter.dataToArray(data: data) {
-                guard weightsArray.count == expectedNumberOfElements else {
-                    log.info("array received has wrong number of elements")
+            let weightsArray = data.toArray(type: Float.self)
+            guard weightsArray.count == expectedNumberOfElements else {
+                log.info("array received has wrong number of elements")
+                continue
+            }
+
+            layerWrappers[index].weights = weightsArray
+            if layerWrappers[index].isUpdatable {
+                let name = layerWrappers[index].name
+                let shapedArray = MLShapedArray(scalars: weightsArray, shape: layerWrappers[index].shape.map { Int($0) })
+                let layerParams = MLMultiArray(shapedArray)
+                log.error("MLClient: layerParams for \(name) shape: \(layerParams.shape) count: \(layerParams.count) is float: \(layerParams.dataType == .float).")
+                let weightsShape = layerParams.shape.map { Int16(truncating: $0) }
+                guard weightsShape == layerWrappers[index].shape else {
+                    log.info("shape not the same")
                     continue
                 }
-
-                layerWrappers[index].weights = weightsArray
-                if layerWrappers[index].isUpdatable {
-                    if let weightsMultiArray = parameterConverter.dataToMultiArray(data: data) {
-                        let weightsShape = weightsMultiArray.shape.map { Int16(truncating: $0) }
-                        guard weightsShape == layerWrappers[index].shape else {
-                            log.info("shape not the same")
-                            continue
-                        }
-                        let paramKey = MLParameterKey.weights.scoped(to: layerWrappers[index].name)
-                        config.parameters?[paramKey] = weightsMultiArray
-                    }
-                }
+                let paramKey = MLParameterKey.weights.scoped(to: name)
+                config.parameters![paramKey] = layerParams
             }
         }
 
@@ -101,10 +105,7 @@ public class MLParameter {
     ///
     /// - Returns: The weights of the current layer wrapper in parameter format
     public func weightsToParameters() -> Parameters {
-        let dataArray = layerWrappers.compactMap { parameterConverter.arrayToData(array: $0.weights, shape: $0.shape) }
-        if dataArray.count != layerWrappers.count {
-            log.info("dataArray size != layerWrappers size")
-        }
+        let dataArray = layerWrappers.map { Data(fromArray: $0.weights) }
         return Parameters(tensors: dataArray, tensorType: "ndarray")
     }
 

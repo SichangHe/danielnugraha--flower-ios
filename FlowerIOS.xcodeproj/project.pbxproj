@@ -68,6 +68,8 @@
 		3F13E6142AA55CFF00535AF2 /* InterceptorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13E6102AA55CFF00535AF2 /* InterceptorExtension.swift */; };
 		3F13E6152AA55CFF00535AF2 /* Interceptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13E6112AA55CFF00535AF2 /* Interceptors.swift */; };
 		3F13E6162AA55CFF00535AF2 /* FlwrGRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13E6122AA55CFF00535AF2 /* FlwrGRPC.swift */; };
+		3F13E6182AA5626000535AF2 /* MLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13E6172AA5626000535AF2 /* MLHelper.swift */; };
+		3F13E61A2AA5641D00535AF2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13E6192AA5641D00535AF2 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -142,6 +144,8 @@
 		3F13E6102AA55CFF00535AF2 /* InterceptorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptorExtension.swift; sourceTree = "<group>"; };
 		3F13E6112AA55CFF00535AF2 /* Interceptors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interceptors.swift; sourceTree = "<group>"; };
 		3F13E6122AA55CFF00535AF2 /* FlwrGRPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlwrGRPC.swift; sourceTree = "<group>"; };
+		3F13E6172AA5626000535AF2 /* MLHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHelper.swift; sourceTree = "<group>"; };
+		3F13E6192AA5641D00535AF2 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +257,7 @@
 		21A30E312A1E240C00BEBAD6 /* MNIST */ = {
 			isa = PBXGroup;
 			children = (
+				3F13E6172AA5626000535AF2 /* MLHelper.swift */,
 				21A30DD72A1E23E100BEBAD6 /* DataLoader.swift */,
 				21A30E322A1E240C00BEBAD6 /* MNIST_train.csv.lzfse */,
 				21A30E332A1E240C00BEBAD6 /* MNIST_test.csv.lzfse */,
@@ -264,6 +269,7 @@
 		21A30E8B2A1E241300BEBAD6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3F13E6192AA5641D00535AF2 /* Helpers.swift */,
 				21A30DDB2A1E240B00BEBAD6 /* CoreMLHelpers */,
 				21A30DED2A1E240B00BEBAD6 /* CoreMLProto */,
 				21A30E312A1E240C00BEBAD6 /* MNIST */,
@@ -429,6 +435,8 @@
 				21A30E842A1E240C00BEBAD6 /* DataStructures.pb.swift in Sources */,
 				21A30E6A2A1E240C00BEBAD6 /* TreeEnsemble.pb.swift in Sources */,
 				3F13E6042AA5597500535AF2 /* MLFlwrClientModel.swift in Sources */,
+				3F13E6182AA5626000535AF2 /* MLHelper.swift in Sources */,
+				3F13E61A2AA5641D00535AF2 /* Helpers.swift in Sources */,
 				21A30E5E2A1E240C00BEBAD6 /* SVM.pb.swift in Sources */,
 				3F13E6012AA5597400535AF2 /* transport.grpc.swift in Sources */,
 				21A30E602A1E240C00BEBAD6 /* AudioFeaturePrint.pb.swift in Sources */,

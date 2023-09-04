@@ -5,7 +5,7 @@ import numpy as np
 
 
 def main(num_clients=1, num_rounds=1) -> None:
-    strategy = flwr.server.strategy.FedAvg(
+    strategy = flwr.server.strategy.FedAvgAndroid(
         min_fit_clients=num_clients,
         min_evaluate_clients=num_clients,
         min_available_clients=num_clients,
