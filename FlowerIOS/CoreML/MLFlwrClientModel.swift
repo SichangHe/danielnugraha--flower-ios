@@ -65,6 +65,9 @@ public class MLParameter {
     /// - Returns: Specification of the machine learning model configuration in the CoreML structure.
     public func parametersToWeights(parameters: Parameters) -> MLModelConfiguration {
         let config = MLModelConfiguration()
+        if config.parameters == nil {
+            config.parameters = [:]
+        }
 
         guard parameters.tensors.count == layerWrappers.count else {
             log.info("parameters received is not valid")
@@ -90,7 +93,7 @@ public class MLParameter {
                         }
                         print("MLClient: layerParams for \(name) shape: \(weightsMultiArray.shape) count: \(weightsMultiArray.count) is float: \(weightsMultiArray.dataType == .float).")
                         let paramKey = MLParameterKey.weights.scoped(to: name)
-                        config.parameters?[paramKey] = weightsMultiArray
+                        config.parameters![paramKey] = weightsMultiArray
                     }
                 }
             }
@@ -114,11 +117,7 @@ public class MLParameter {
     ///
     /// - Parameters:
     ///   - context: The context of the update procedure of the CoreML model.
-    public func updateLayerWrappers(context: MLUpdateContext) -> MLModelConfiguration {
-        let config = MLModelConfiguration()
-        if config.parameters == nil {
-            config.parameters = [:]
-        }
+    public func updateLayerWrappers(context: MLUpdateContext) {
         for (index, layer) in layerWrappers.enumerated() {
             if layer.isUpdatable {
                 let paramKey = MLParameterKey.weights.scoped(to: layer.name)
@@ -129,7 +128,6 @@ public class MLParameter {
                         continue
                     }
 
-                    config.parameters![paramKey] = weightsMultiArray
                     if let pointer = try? UnsafeBufferPointer<Float>(weightsMultiArray) {
                         let array = pointer.compactMap { $0 }
                         layerWrappers[index].weights = array
@@ -137,6 +135,5 @@ public class MLParameter {
                 }
             }
         }
-        return config
     }
 }

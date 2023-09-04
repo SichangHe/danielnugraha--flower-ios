@@ -139,10 +139,8 @@ public class MLFlwrClient: Client {
 
         let completionHandler: (MLUpdateContext) -> Void = { finalContext in
             if task == .train {
-                let config = self.parameters.updateLayerWrappers(context: finalContext)
+                self.parameters.updateLayerWrappers(context: finalContext)
                 self.saveModel(finalContext)
-                let result = self.runMLTask(configuration: config, task: .test)
-                print(result.loss)
             }
 
             let loss = finalContext.metrics[.lossValue] as! Double
