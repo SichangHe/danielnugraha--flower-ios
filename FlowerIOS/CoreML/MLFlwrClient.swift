@@ -123,7 +123,7 @@ public class MLFlwrClient: Client {
             dataset = dataLoader.trainBatchProvider
         case .test:
             let epochs = MLParameterKey.epochs
-            configuration.parameters = [epochs: 1]
+            configuration.parameters![epochs] = 1
             dataset = dataLoader.testBatchProvider
         }
 
