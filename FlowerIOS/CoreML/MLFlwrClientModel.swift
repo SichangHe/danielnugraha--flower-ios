@@ -82,12 +82,14 @@ public class MLParameter {
                 layerWrappers[index].weights = weightsArray
                 if layerWrappers[index].isUpdatable {
                     if let weightsMultiArray = parameterConverter.dataToMultiArray(data: data) {
+                        let name = layerWrappers[index].name
                         let weightsShape = weightsMultiArray.shape.map { Int16(truncating: $0) }
                         guard weightsShape == layerWrappers[index].shape else {
                             log.info("shape not the same")
                             continue
                         }
-                        let paramKey = MLParameterKey.weights.scoped(to: layerWrappers[index].name)
+                        print("MLClient: layerParams for \(name) shape: \(weightsMultiArray.shape) count: \(weightsMultiArray.count) is float: \(weightsMultiArray.dataType == .float).")
+                        let paramKey = MLParameterKey.weights.scoped(to: name)
                         config.parameters?[paramKey] = weightsMultiArray
                     }
                 }
