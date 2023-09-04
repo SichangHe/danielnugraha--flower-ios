@@ -114,7 +114,11 @@ public class MLParameter {
     ///
     /// - Parameters:
     ///   - context: The context of the update procedure of the CoreML model.
-    public func updateLayerWrappers(context: MLUpdateContext) {
+    public func updateLayerWrappers(context: MLUpdateContext) -> MLModelConfiguration {
+        let config = MLModelConfiguration()
+        if config.parameters == nil {
+            config.parameters = [:]
+        }
         for (index, layer) in layerWrappers.enumerated() {
             if layer.isUpdatable {
                 let paramKey = MLParameterKey.weights.scoped(to: layer.name)
@@ -125,6 +129,7 @@ public class MLParameter {
                         continue
                     }
 
+                    config.parameters![paramKey] = weightsMultiArray
                     if let pointer = try? UnsafeBufferPointer<Float>(weightsMultiArray) {
                         let array = pointer.compactMap { $0 }
                         layerWrappers[index].weights = array
@@ -132,5 +137,6 @@ public class MLParameter {
                 }
             }
         }
+        return config
     }
 }
