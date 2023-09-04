@@ -9,16 +9,16 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var appLogic = AppLogic()
-    
+
     var numberFormatter: NumberFormatter = {
         var nf = NumberFormatter()
         nf.usesGroupingSeparator = false
         nf.numberStyle = .none
         return nf
     }()
-    
+
     var body: some View {
-        VStack() {
+        VStack {
             Spacer().frame(height: 50)
             Text("Flower iOS Client")
                 .font(.largeTitle)
@@ -32,7 +32,7 @@ struct MainView: View {
                     }
                     HStack {
                         Text("Server Port: ")
-                        TextField( "Server Port", value: $appLogic.port, formatter: numberFormatter)
+                        TextField("Server Port", value: $appLogic.port, formatter: numberFormatter)
                             .multilineTextAlignment(.trailing)
                     }
                     HStack {

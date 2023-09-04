@@ -20,81 +20,81 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+    typealias Version = _2
 }
 
-///*
+/// *
 /// A model which maps a set of strings into a finite-dimensional real vector space.
 struct CoreML_Specification_CoreMLModels_WordEmbedding {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  ///
-  /// Stores the revision number for the model, revision 2 is available on
-  /// iOS, tvOS 13.0+, macOS 10.15+
-  var revision: UInt32 = 0
+    ///
+    /// Stores the revision number for the model, revision 2 is available on
+    /// iOS, tvOS 13.0+, macOS 10.15+
+    var revision: UInt32 = 0
 
-  ///
-  /// Stores the language of the model, as specified in BCP-47 format,
-  /// e.g. "en-US". See https://tools.ietf.org/html/bcp47
-  var language: String = String()
+    ///
+    /// Stores the language of the model, as specified in BCP-47 format,
+    /// e.g. "en-US". See https://tools.ietf.org/html/bcp47
+    var language: String = .init()
 
-  ///
-  /// Stores efficient representation of emebedding as encoded by the Natural Language Framework
-  var modelParameterData: Data = Data()
+    ///
+    /// Stores efficient representation of emebedding as encoded by the Natural Language Framework
+    var modelParameterData: Data = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "CoreML.Specification.CoreMLModels"
+private let _protobuf_package = "CoreML.Specification.CoreMLModels"
 
 extension CoreML_Specification_CoreMLModels_WordEmbedding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WordEmbedding"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "revision"),
-    10: .same(proto: "language"),
-    100: .same(proto: "modelParameterData"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".WordEmbedding"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "revision"),
+        10: .same(proto: "language"),
+        100: .same(proto: "modelParameterData"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.revision) }()
-      case 10: try { try decoder.decodeSingularStringField(value: &self.language) }()
-      case 100: try { try decoder.decodeSingularBytesField(value: &self.modelParameterData) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularUInt32Field(value: &revision)
+            case 10: try try decoder.decodeSingularStringField(value: &language)
+            case 100: try try decoder.decodeSingularBytesField(value: &modelParameterData)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.revision != 0 {
-      try visitor.visitSingularUInt32Field(value: self.revision, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if revision != 0 {
+            try visitor.visitSingularUInt32Field(value: revision, fieldNumber: 1)
+        }
+        if !language.isEmpty {
+            try visitor.visitSingularStringField(value: language, fieldNumber: 10)
+        }
+        if !modelParameterData.isEmpty {
+            try visitor.visitSingularBytesField(value: modelParameterData, fieldNumber: 100)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.language.isEmpty {
-      try visitor.visitSingularStringField(value: self.language, fieldNumber: 10)
-    }
-    if !self.modelParameterData.isEmpty {
-      try visitor.visitSingularBytesField(value: self.modelParameterData, fieldNumber: 100)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_CoreMLModels_WordEmbedding, rhs: CoreML_Specification_CoreMLModels_WordEmbedding) -> Bool {
-    if lhs.revision != rhs.revision {return false}
-    if lhs.language != rhs.language {return false}
-    if lhs.modelParameterData != rhs.modelParameterData {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_CoreMLModels_WordEmbedding, rhs: CoreML_Specification_CoreMLModels_WordEmbedding) -> Bool {
+        if lhs.revision != rhs.revision { return false }
+        if lhs.language != rhs.language { return false }
+        if lhs.modelParameterData != rhs.modelParameterData { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }

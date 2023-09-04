@@ -30,1524 +30,1530 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+    typealias Version = _2
 }
 
 enum Flwr_Proto_Code: SwiftProtobuf.Enum {
-  typealias RawValue = Int
-  case ok // = 0
-  case getPropertiesNotImplemented // = 1
-  case getParametersNotImplemented // = 2
-  case fitNotImplemented // = 3
-  case evaluateNotImplemented // = 4
-  case UNRECOGNIZED(Int)
+    typealias RawValue = Int
+    case ok // = 0
+    case getPropertiesNotImplemented // = 1
+    case getParametersNotImplemented // = 2
+    case fitNotImplemented // = 3
+    case evaluateNotImplemented // = 4
+    case UNRECOGNIZED(Int)
 
-  init() {
-    self = .ok
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .ok
-    case 1: self = .getPropertiesNotImplemented
-    case 2: self = .getParametersNotImplemented
-    case 3: self = .fitNotImplemented
-    case 4: self = .evaluateNotImplemented
-    default: self = .UNRECOGNIZED(rawValue)
+    init() {
+        self = .ok
     }
-  }
 
-  var rawValue: Int {
-    switch self {
-    case .ok: return 0
-    case .getPropertiesNotImplemented: return 1
-    case .getParametersNotImplemented: return 2
-    case .fitNotImplemented: return 3
-    case .evaluateNotImplemented: return 4
-    case .UNRECOGNIZED(let i): return i
+    init?(rawValue: Int) {
+        switch rawValue {
+        case 0: self = .ok
+        case 1: self = .getPropertiesNotImplemented
+        case 2: self = .getParametersNotImplemented
+        case 3: self = .fitNotImplemented
+        case 4: self = .evaluateNotImplemented
+        default: self = .UNRECOGNIZED(rawValue)
+        }
     }
-  }
 
+    var rawValue: Int {
+        switch self {
+        case .ok: return 0
+        case .getPropertiesNotImplemented: return 1
+        case .getParametersNotImplemented: return 2
+        case .fitNotImplemented: return 3
+        case .evaluateNotImplemented: return 4
+        case let .UNRECOGNIZED(i): return i
+        }
+    }
 }
 
 #if swift(>=4.2)
 
-extension Flwr_Proto_Code: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Flwr_Proto_Code] = [
-    .ok,
-    .getPropertiesNotImplemented,
-    .getParametersNotImplemented,
-    .fitNotImplemented,
-    .evaluateNotImplemented,
-  ]
-}
+    extension Flwr_Proto_Code: CaseIterable {
+        // The compiler won't synthesize support with the UNRECOGNIZED case.
+        static var allCases: [Flwr_Proto_Code] = [
+            .ok,
+            .getPropertiesNotImplemented,
+            .getParametersNotImplemented,
+            .fitNotImplemented,
+            .evaluateNotImplemented,
+        ]
+    }
 
-#endif  // swift(>=4.2)
+#endif // swift(>=4.2)
 
 enum Flwr_Proto_Reason: SwiftProtobuf.Enum {
-  typealias RawValue = Int
-  case unknown // = 0
-  case reconnect // = 1
-  case powerDisconnected // = 2
-  case wifiUnavailable // = 3
-  case ack // = 4
-  case UNRECOGNIZED(Int)
+    typealias RawValue = Int
+    case unknown // = 0
+    case reconnect // = 1
+    case powerDisconnected // = 2
+    case wifiUnavailable // = 3
+    case ack // = 4
+    case UNRECOGNIZED(Int)
 
-  init() {
-    self = .unknown
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .unknown
-    case 1: self = .reconnect
-    case 2: self = .powerDisconnected
-    case 3: self = .wifiUnavailable
-    case 4: self = .ack
-    default: self = .UNRECOGNIZED(rawValue)
+    init() {
+        self = .unknown
     }
-  }
 
-  var rawValue: Int {
-    switch self {
-    case .unknown: return 0
-    case .reconnect: return 1
-    case .powerDisconnected: return 2
-    case .wifiUnavailable: return 3
-    case .ack: return 4
-    case .UNRECOGNIZED(let i): return i
+    init?(rawValue: Int) {
+        switch rawValue {
+        case 0: self = .unknown
+        case 1: self = .reconnect
+        case 2: self = .powerDisconnected
+        case 3: self = .wifiUnavailable
+        case 4: self = .ack
+        default: self = .UNRECOGNIZED(rawValue)
+        }
     }
-  }
 
+    var rawValue: Int {
+        switch self {
+        case .unknown: return 0
+        case .reconnect: return 1
+        case .powerDisconnected: return 2
+        case .wifiUnavailable: return 3
+        case .ack: return 4
+        case let .UNRECOGNIZED(i): return i
+        }
+    }
 }
 
 #if swift(>=4.2)
 
-extension Flwr_Proto_Reason: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Flwr_Proto_Reason] = [
-    .unknown,
-    .reconnect,
-    .powerDisconnected,
-    .wifiUnavailable,
-    .ack,
-  ]
-}
+    extension Flwr_Proto_Reason: CaseIterable {
+        // The compiler won't synthesize support with the UNRECOGNIZED case.
+        static var allCases: [Flwr_Proto_Reason] = [
+            .unknown,
+            .reconnect,
+            .powerDisconnected,
+            .wifiUnavailable,
+            .ack,
+        ]
+    }
 
-#endif  // swift(>=4.2)
+#endif // swift(>=4.2)
 
 struct Flwr_Proto_Status {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var code: Flwr_Proto_Code = .ok
+    var code: Flwr_Proto_Code = .ok
 
-  var message: String = String()
+    var message: String = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Flwr_Proto_Parameters {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var tensors: [Data] = []
+    var tensors: [Data] = []
 
-  var tensorType: String = String()
+    var tensorType: String = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Flwr_Proto_ServerMessage {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  var msg: Flwr_Proto_ServerMessage.OneOf_Msg? = nil
-
-  var reconnectIns: Flwr_Proto_ServerMessage.ReconnectIns {
-    get {
-      if case .reconnectIns(let v)? = msg {return v}
-      return Flwr_Proto_ServerMessage.ReconnectIns()
-    }
-    set {msg = .reconnectIns(newValue)}
-  }
-
-  var getPropertiesIns: Flwr_Proto_ServerMessage.GetPropertiesIns {
-    get {
-      if case .getPropertiesIns(let v)? = msg {return v}
-      return Flwr_Proto_ServerMessage.GetPropertiesIns()
-    }
-    set {msg = .getPropertiesIns(newValue)}
-  }
-
-  var getParametersIns: Flwr_Proto_ServerMessage.GetParametersIns {
-    get {
-      if case .getParametersIns(let v)? = msg {return v}
-      return Flwr_Proto_ServerMessage.GetParametersIns()
-    }
-    set {msg = .getParametersIns(newValue)}
-  }
-
-  var fitIns: Flwr_Proto_ServerMessage.FitIns {
-    get {
-      if case .fitIns(let v)? = msg {return v}
-      return Flwr_Proto_ServerMessage.FitIns()
-    }
-    set {msg = .fitIns(newValue)}
-  }
-
-  var evaluateIns: Flwr_Proto_ServerMessage.EvaluateIns {
-    get {
-      if case .evaluateIns(let v)? = msg {return v}
-      return Flwr_Proto_ServerMessage.EvaluateIns()
-    }
-    set {msg = .evaluateIns(newValue)}
-  }
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  enum OneOf_Msg: Equatable {
-    case reconnectIns(Flwr_Proto_ServerMessage.ReconnectIns)
-    case getPropertiesIns(Flwr_Proto_ServerMessage.GetPropertiesIns)
-    case getParametersIns(Flwr_Proto_ServerMessage.GetParametersIns)
-    case fitIns(Flwr_Proto_ServerMessage.FitIns)
-    case evaluateIns(Flwr_Proto_ServerMessage.EvaluateIns)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: Flwr_Proto_ServerMessage.OneOf_Msg, rhs: Flwr_Proto_ServerMessage.OneOf_Msg) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.reconnectIns, .reconnectIns): return {
-        guard case .reconnectIns(let l) = lhs, case .reconnectIns(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.getPropertiesIns, .getPropertiesIns): return {
-        guard case .getPropertiesIns(let l) = lhs, case .getPropertiesIns(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.getParametersIns, .getParametersIns): return {
-        guard case .getParametersIns(let l) = lhs, case .getParametersIns(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.fitIns, .fitIns): return {
-        guard case .fitIns(let l) = lhs, case .fitIns(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.evaluateIns, .evaluateIns): return {
-        guard case .evaluateIns(let l) = lhs, case .evaluateIns(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
-  }
-
-  struct ReconnectIns {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var seconds: Int64 = 0
+    var msg: Flwr_Proto_ServerMessage.OneOf_Msg?
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct GetPropertiesIns {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var config: Dictionary<String,Flwr_Proto_Scalar> = [:]
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct GetParametersIns {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var config: Dictionary<String,Flwr_Proto_Scalar> = [:]
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct FitIns {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var parameters: Flwr_Proto_Parameters {
-      get {return _parameters ?? Flwr_Proto_Parameters()}
-      set {_parameters = newValue}
+    var reconnectIns: Flwr_Proto_ServerMessage.ReconnectIns {
+        get {
+            if case let .reconnectIns(v)? = msg { return v }
+            return Flwr_Proto_ServerMessage.ReconnectIns()
+        }
+        set { msg = .reconnectIns(newValue) }
     }
-    /// Returns true if `parameters` has been explicitly set.
-    var hasParameters: Bool {return self._parameters != nil}
-    /// Clears the value of `parameters`. Subsequent reads from it will return its default value.
-    mutating func clearParameters() {self._parameters = nil}
 
-    var config: Dictionary<String,Flwr_Proto_Scalar> = [:]
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    fileprivate var _parameters: Flwr_Proto_Parameters? = nil
-  }
-
-  struct EvaluateIns {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var parameters: Flwr_Proto_Parameters {
-      get {return _parameters ?? Flwr_Proto_Parameters()}
-      set {_parameters = newValue}
+    var getPropertiesIns: Flwr_Proto_ServerMessage.GetPropertiesIns {
+        get {
+            if case let .getPropertiesIns(v)? = msg { return v }
+            return Flwr_Proto_ServerMessage.GetPropertiesIns()
+        }
+        set { msg = .getPropertiesIns(newValue) }
     }
-    /// Returns true if `parameters` has been explicitly set.
-    var hasParameters: Bool {return self._parameters != nil}
-    /// Clears the value of `parameters`. Subsequent reads from it will return its default value.
-    mutating func clearParameters() {self._parameters = nil}
 
-    var config: Dictionary<String,Flwr_Proto_Scalar> = [:]
+    var getParametersIns: Flwr_Proto_ServerMessage.GetParametersIns {
+        get {
+            if case let .getParametersIns(v)? = msg { return v }
+            return Flwr_Proto_ServerMessage.GetParametersIns()
+        }
+        set { msg = .getParametersIns(newValue) }
+    }
+
+    var fitIns: Flwr_Proto_ServerMessage.FitIns {
+        get {
+            if case let .fitIns(v)? = msg { return v }
+            return Flwr_Proto_ServerMessage.FitIns()
+        }
+        set { msg = .fitIns(newValue) }
+    }
+
+    var evaluateIns: Flwr_Proto_ServerMessage.EvaluateIns {
+        get {
+            if case let .evaluateIns(v)? = msg { return v }
+            return Flwr_Proto_ServerMessage.EvaluateIns()
+        }
+        set { msg = .evaluateIns(newValue) }
+    }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    enum OneOf_Msg: Equatable {
+        case reconnectIns(Flwr_Proto_ServerMessage.ReconnectIns)
+        case getPropertiesIns(Flwr_Proto_ServerMessage.GetPropertiesIns)
+        case getParametersIns(Flwr_Proto_ServerMessage.GetParametersIns)
+        case fitIns(Flwr_Proto_ServerMessage.FitIns)
+        case evaluateIns(Flwr_Proto_ServerMessage.EvaluateIns)
+
+        #if !swift(>=4.1)
+            static func == (lhs: Flwr_Proto_ServerMessage.OneOf_Msg, rhs: Flwr_Proto_ServerMessage.OneOf_Msg) -> Bool {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch (lhs, rhs) {
+                case (.reconnectIns, .reconnectIns): return {
+                        guard case let .reconnectIns(l) = lhs, case let .reconnectIns(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.getPropertiesIns, .getPropertiesIns): return {
+                        guard case let .getPropertiesIns(l) = lhs, case let .getPropertiesIns(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.getParametersIns, .getParametersIns): return {
+                        guard case let .getParametersIns(l) = lhs, case let .getParametersIns(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.fitIns, .fitIns): return {
+                        guard case let .fitIns(l) = lhs, case let .fitIns(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.evaluateIns, .evaluateIns): return {
+                        guard case let .evaluateIns(l) = lhs, case let .evaluateIns(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                default: return false
+                }
+            }
+        #endif
+    }
+
+    struct ReconnectIns {
+        // SwiftProtobuf.Message conformance is added in an extension below. See the
+        // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+        // methods supported on all messages.
+
+        var seconds: Int64 = 0
+
+        var unknownFields = SwiftProtobuf.UnknownStorage()
+
+        init() {}
+    }
+
+    struct GetPropertiesIns {
+        // SwiftProtobuf.Message conformance is added in an extension below. See the
+        // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+        // methods supported on all messages.
+
+        var config: [String: Flwr_Proto_Scalar] = [:]
+
+        var unknownFields = SwiftProtobuf.UnknownStorage()
+
+        init() {}
+    }
+
+    struct GetParametersIns {
+        // SwiftProtobuf.Message conformance is added in an extension below. See the
+        // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+        // methods supported on all messages.
+
+        var config: [String: Flwr_Proto_Scalar] = [:]
+
+        var unknownFields = SwiftProtobuf.UnknownStorage()
+
+        init() {}
+    }
+
+    struct FitIns {
+        // SwiftProtobuf.Message conformance is added in an extension below. See the
+        // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+        // methods supported on all messages.
+
+        var parameters: Flwr_Proto_Parameters {
+            get { return _parameters ?? Flwr_Proto_Parameters() }
+            set { _parameters = newValue }
+        }
+
+        /// Returns true if `parameters` has been explicitly set.
+        var hasParameters: Bool { return self._parameters != nil }
+        /// Clears the value of `parameters`. Subsequent reads from it will return its default value.
+        mutating func clearParameters() { _parameters = nil }
+
+        var config: [String: Flwr_Proto_Scalar] = [:]
+
+        var unknownFields = SwiftProtobuf.UnknownStorage()
+
+        init() {}
+
+        fileprivate var _parameters: Flwr_Proto_Parameters?
+    }
+
+    struct EvaluateIns {
+        // SwiftProtobuf.Message conformance is added in an extension below. See the
+        // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+        // methods supported on all messages.
+
+        var parameters: Flwr_Proto_Parameters {
+            get { return _parameters ?? Flwr_Proto_Parameters() }
+            set { _parameters = newValue }
+        }
+
+        /// Returns true if `parameters` has been explicitly set.
+        var hasParameters: Bool { return self._parameters != nil }
+        /// Clears the value of `parameters`. Subsequent reads from it will return its default value.
+        mutating func clearParameters() { _parameters = nil }
+
+        var config: [String: Flwr_Proto_Scalar] = [:]
+
+        var unknownFields = SwiftProtobuf.UnknownStorage()
+
+        init() {}
+
+        fileprivate var _parameters: Flwr_Proto_Parameters?
+    }
+
     init() {}
-
-    fileprivate var _parameters: Flwr_Proto_Parameters? = nil
-  }
-
-  init() {}
 }
 
 struct Flwr_Proto_ClientMessage {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  var msg: Flwr_Proto_ClientMessage.OneOf_Msg? = nil
-
-  var disconnectRes: Flwr_Proto_ClientMessage.DisconnectRes {
-    get {
-      if case .disconnectRes(let v)? = msg {return v}
-      return Flwr_Proto_ClientMessage.DisconnectRes()
-    }
-    set {msg = .disconnectRes(newValue)}
-  }
-
-  var getPropertiesRes: Flwr_Proto_ClientMessage.GetPropertiesRes {
-    get {
-      if case .getPropertiesRes(let v)? = msg {return v}
-      return Flwr_Proto_ClientMessage.GetPropertiesRes()
-    }
-    set {msg = .getPropertiesRes(newValue)}
-  }
-
-  var getParametersRes: Flwr_Proto_ClientMessage.GetParametersRes {
-    get {
-      if case .getParametersRes(let v)? = msg {return v}
-      return Flwr_Proto_ClientMessage.GetParametersRes()
-    }
-    set {msg = .getParametersRes(newValue)}
-  }
-
-  var fitRes: Flwr_Proto_ClientMessage.FitRes {
-    get {
-      if case .fitRes(let v)? = msg {return v}
-      return Flwr_Proto_ClientMessage.FitRes()
-    }
-    set {msg = .fitRes(newValue)}
-  }
-
-  var evaluateRes: Flwr_Proto_ClientMessage.EvaluateRes {
-    get {
-      if case .evaluateRes(let v)? = msg {return v}
-      return Flwr_Proto_ClientMessage.EvaluateRes()
-    }
-    set {msg = .evaluateRes(newValue)}
-  }
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  enum OneOf_Msg: Equatable {
-    case disconnectRes(Flwr_Proto_ClientMessage.DisconnectRes)
-    case getPropertiesRes(Flwr_Proto_ClientMessage.GetPropertiesRes)
-    case getParametersRes(Flwr_Proto_ClientMessage.GetParametersRes)
-    case fitRes(Flwr_Proto_ClientMessage.FitRes)
-    case evaluateRes(Flwr_Proto_ClientMessage.EvaluateRes)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: Flwr_Proto_ClientMessage.OneOf_Msg, rhs: Flwr_Proto_ClientMessage.OneOf_Msg) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.disconnectRes, .disconnectRes): return {
-        guard case .disconnectRes(let l) = lhs, case .disconnectRes(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.getPropertiesRes, .getPropertiesRes): return {
-        guard case .getPropertiesRes(let l) = lhs, case .getPropertiesRes(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.getParametersRes, .getParametersRes): return {
-        guard case .getParametersRes(let l) = lhs, case .getParametersRes(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.fitRes, .fitRes): return {
-        guard case .fitRes(let l) = lhs, case .fitRes(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.evaluateRes, .evaluateRes): return {
-        guard case .evaluateRes(let l) = lhs, case .evaluateRes(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
-  }
-
-  struct DisconnectRes {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var reason: Flwr_Proto_Reason = .unknown
+    var msg: Flwr_Proto_ClientMessage.OneOf_Msg?
+
+    var disconnectRes: Flwr_Proto_ClientMessage.DisconnectRes {
+        get {
+            if case let .disconnectRes(v)? = msg { return v }
+            return Flwr_Proto_ClientMessage.DisconnectRes()
+        }
+        set { msg = .disconnectRes(newValue) }
+    }
+
+    var getPropertiesRes: Flwr_Proto_ClientMessage.GetPropertiesRes {
+        get {
+            if case let .getPropertiesRes(v)? = msg { return v }
+            return Flwr_Proto_ClientMessage.GetPropertiesRes()
+        }
+        set { msg = .getPropertiesRes(newValue) }
+    }
+
+    var getParametersRes: Flwr_Proto_ClientMessage.GetParametersRes {
+        get {
+            if case let .getParametersRes(v)? = msg { return v }
+            return Flwr_Proto_ClientMessage.GetParametersRes()
+        }
+        set { msg = .getParametersRes(newValue) }
+    }
+
+    var fitRes: Flwr_Proto_ClientMessage.FitRes {
+        get {
+            if case let .fitRes(v)? = msg { return v }
+            return Flwr_Proto_ClientMessage.FitRes()
+        }
+        set { msg = .fitRes(newValue) }
+    }
+
+    var evaluateRes: Flwr_Proto_ClientMessage.EvaluateRes {
+        get {
+            if case let .evaluateRes(v)? = msg { return v }
+            return Flwr_Proto_ClientMessage.EvaluateRes()
+        }
+        set { msg = .evaluateRes(newValue) }
+    }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    enum OneOf_Msg: Equatable {
+        case disconnectRes(Flwr_Proto_ClientMessage.DisconnectRes)
+        case getPropertiesRes(Flwr_Proto_ClientMessage.GetPropertiesRes)
+        case getParametersRes(Flwr_Proto_ClientMessage.GetParametersRes)
+        case fitRes(Flwr_Proto_ClientMessage.FitRes)
+        case evaluateRes(Flwr_Proto_ClientMessage.EvaluateRes)
+
+        #if !swift(>=4.1)
+            static func == (lhs: Flwr_Proto_ClientMessage.OneOf_Msg, rhs: Flwr_Proto_ClientMessage.OneOf_Msg) -> Bool {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch (lhs, rhs) {
+                case (.disconnectRes, .disconnectRes): return {
+                        guard case let .disconnectRes(l) = lhs, case let .disconnectRes(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.getPropertiesRes, .getPropertiesRes): return {
+                        guard case let .getPropertiesRes(l) = lhs, case let .getPropertiesRes(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.getParametersRes, .getParametersRes): return {
+                        guard case let .getParametersRes(l) = lhs, case let .getParametersRes(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.fitRes, .fitRes): return {
+                        guard case let .fitRes(l) = lhs, case let .fitRes(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.evaluateRes, .evaluateRes): return {
+                        guard case let .evaluateRes(l) = lhs, case let .evaluateRes(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                default: return false
+                }
+            }
+        #endif
+    }
+
+    struct DisconnectRes {
+        // SwiftProtobuf.Message conformance is added in an extension below. See the
+        // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+        // methods supported on all messages.
+
+        var reason: Flwr_Proto_Reason = .unknown
+
+        var unknownFields = SwiftProtobuf.UnknownStorage()
+
+        init() {}
+    }
+
+    struct GetPropertiesRes {
+        // SwiftProtobuf.Message conformance is added in an extension below. See the
+        // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+        // methods supported on all messages.
+
+        var status: Flwr_Proto_Status {
+            get { return _status ?? Flwr_Proto_Status() }
+            set { _status = newValue }
+        }
+
+        /// Returns true if `status` has been explicitly set.
+        var hasStatus: Bool { return self._status != nil }
+        /// Clears the value of `status`. Subsequent reads from it will return its default value.
+        mutating func clearStatus() { _status = nil }
+
+        var properties: [String: Flwr_Proto_Scalar] = [:]
+
+        var unknownFields = SwiftProtobuf.UnknownStorage()
+
+        init() {}
+
+        fileprivate var _status: Flwr_Proto_Status?
+    }
+
+    struct GetParametersRes {
+        // SwiftProtobuf.Message conformance is added in an extension below. See the
+        // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+        // methods supported on all messages.
+
+        var status: Flwr_Proto_Status {
+            get { return _status ?? Flwr_Proto_Status() }
+            set { _status = newValue }
+        }
+
+        /// Returns true if `status` has been explicitly set.
+        var hasStatus: Bool { return self._status != nil }
+        /// Clears the value of `status`. Subsequent reads from it will return its default value.
+        mutating func clearStatus() { _status = nil }
+
+        var parameters: Flwr_Proto_Parameters {
+            get { return _parameters ?? Flwr_Proto_Parameters() }
+            set { _parameters = newValue }
+        }
+
+        /// Returns true if `parameters` has been explicitly set.
+        var hasParameters: Bool { return self._parameters != nil }
+        /// Clears the value of `parameters`. Subsequent reads from it will return its default value.
+        mutating func clearParameters() { _parameters = nil }
+
+        var unknownFields = SwiftProtobuf.UnknownStorage()
+
+        init() {}
+
+        fileprivate var _status: Flwr_Proto_Status?
+        fileprivate var _parameters: Flwr_Proto_Parameters?
+    }
+
+    struct FitRes {
+        // SwiftProtobuf.Message conformance is added in an extension below. See the
+        // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+        // methods supported on all messages.
+
+        var status: Flwr_Proto_Status {
+            get { return _status ?? Flwr_Proto_Status() }
+            set { _status = newValue }
+        }
+
+        /// Returns true if `status` has been explicitly set.
+        var hasStatus: Bool { return self._status != nil }
+        /// Clears the value of `status`. Subsequent reads from it will return its default value.
+        mutating func clearStatus() { _status = nil }
+
+        var parameters: Flwr_Proto_Parameters {
+            get { return _parameters ?? Flwr_Proto_Parameters() }
+            set { _parameters = newValue }
+        }
+
+        /// Returns true if `parameters` has been explicitly set.
+        var hasParameters: Bool { return self._parameters != nil }
+        /// Clears the value of `parameters`. Subsequent reads from it will return its default value.
+        mutating func clearParameters() { _parameters = nil }
+
+        var numExamples: Int64 = 0
+
+        var metrics: [String: Flwr_Proto_Scalar] = [:]
+
+        var unknownFields = SwiftProtobuf.UnknownStorage()
+
+        init() {}
+
+        fileprivate var _status: Flwr_Proto_Status?
+        fileprivate var _parameters: Flwr_Proto_Parameters?
+    }
+
+    struct EvaluateRes {
+        // SwiftProtobuf.Message conformance is added in an extension below. See the
+        // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+        // methods supported on all messages.
+
+        var status: Flwr_Proto_Status {
+            get { return _status ?? Flwr_Proto_Status() }
+            set { _status = newValue }
+        }
+
+        /// Returns true if `status` has been explicitly set.
+        var hasStatus: Bool { return self._status != nil }
+        /// Clears the value of `status`. Subsequent reads from it will return its default value.
+        mutating func clearStatus() { _status = nil }
+
+        var loss: Float = 0
+
+        var numExamples: Int64 = 0
+
+        var metrics: [String: Flwr_Proto_Scalar] = [:]
+
+        var unknownFields = SwiftProtobuf.UnknownStorage()
+
+        init() {}
+
+        fileprivate var _status: Flwr_Proto_Status?
+    }
+
     init() {}
-  }
-
-  struct GetPropertiesRes {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var status: Flwr_Proto_Status {
-      get {return _status ?? Flwr_Proto_Status()}
-      set {_status = newValue}
-    }
-    /// Returns true if `status` has been explicitly set.
-    var hasStatus: Bool {return self._status != nil}
-    /// Clears the value of `status`. Subsequent reads from it will return its default value.
-    mutating func clearStatus() {self._status = nil}
-
-    var properties: Dictionary<String,Flwr_Proto_Scalar> = [:]
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    fileprivate var _status: Flwr_Proto_Status? = nil
-  }
-
-  struct GetParametersRes {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var status: Flwr_Proto_Status {
-      get {return _status ?? Flwr_Proto_Status()}
-      set {_status = newValue}
-    }
-    /// Returns true if `status` has been explicitly set.
-    var hasStatus: Bool {return self._status != nil}
-    /// Clears the value of `status`. Subsequent reads from it will return its default value.
-    mutating func clearStatus() {self._status = nil}
-
-    var parameters: Flwr_Proto_Parameters {
-      get {return _parameters ?? Flwr_Proto_Parameters()}
-      set {_parameters = newValue}
-    }
-    /// Returns true if `parameters` has been explicitly set.
-    var hasParameters: Bool {return self._parameters != nil}
-    /// Clears the value of `parameters`. Subsequent reads from it will return its default value.
-    mutating func clearParameters() {self._parameters = nil}
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    fileprivate var _status: Flwr_Proto_Status? = nil
-    fileprivate var _parameters: Flwr_Proto_Parameters? = nil
-  }
-
-  struct FitRes {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var status: Flwr_Proto_Status {
-      get {return _status ?? Flwr_Proto_Status()}
-      set {_status = newValue}
-    }
-    /// Returns true if `status` has been explicitly set.
-    var hasStatus: Bool {return self._status != nil}
-    /// Clears the value of `status`. Subsequent reads from it will return its default value.
-    mutating func clearStatus() {self._status = nil}
-
-    var parameters: Flwr_Proto_Parameters {
-      get {return _parameters ?? Flwr_Proto_Parameters()}
-      set {_parameters = newValue}
-    }
-    /// Returns true if `parameters` has been explicitly set.
-    var hasParameters: Bool {return self._parameters != nil}
-    /// Clears the value of `parameters`. Subsequent reads from it will return its default value.
-    mutating func clearParameters() {self._parameters = nil}
-
-    var numExamples: Int64 = 0
-
-    var metrics: Dictionary<String,Flwr_Proto_Scalar> = [:]
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    fileprivate var _status: Flwr_Proto_Status? = nil
-    fileprivate var _parameters: Flwr_Proto_Parameters? = nil
-  }
-
-  struct EvaluateRes {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var status: Flwr_Proto_Status {
-      get {return _status ?? Flwr_Proto_Status()}
-      set {_status = newValue}
-    }
-    /// Returns true if `status` has been explicitly set.
-    var hasStatus: Bool {return self._status != nil}
-    /// Clears the value of `status`. Subsequent reads from it will return its default value.
-    mutating func clearStatus() {self._status = nil}
-
-    var loss: Float = 0
-
-    var numExamples: Int64 = 0
-
-    var metrics: Dictionary<String,Flwr_Proto_Scalar> = [:]
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    fileprivate var _status: Flwr_Proto_Status? = nil
-  }
-
-  init() {}
 }
 
 struct Flwr_Proto_Scalar {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  /// The following `oneof` contains all types that ProtoBuf considers to be
-  /// "Scalar Value Types". Commented-out types are listed for reference and
-  /// might be enabled in future releases. Source:
-  /// https://developers.google.com/protocol-buffers/docs/proto3#scalar
-  var scalar: Flwr_Proto_Scalar.OneOf_Scalar? = nil
+    /// The following `oneof` contains all types that ProtoBuf considers to be
+    /// "Scalar Value Types". Commented-out types are listed for reference and
+    /// might be enabled in future releases. Source:
+    /// https://developers.google.com/protocol-buffers/docs/proto3#scalar
+    var scalar: Flwr_Proto_Scalar.OneOf_Scalar?
 
-  var double: Double {
-    get {
-      if case .double(let v)? = scalar {return v}
-      return 0
+    var double: Double {
+        get {
+            if case let .double(v)? = scalar { return v }
+            return 0
+        }
+        set { scalar = .double(newValue) }
     }
-    set {scalar = .double(newValue)}
-  }
 
-  /// float float = 2;
-  /// int32 int32 = 3;
-  /// int64 int64 = 4;
-  /// uint32 uint32 = 5;
-  /// uint64 uint64 = 6;
-  /// sint32 sint32 = 7;
-  var sint64: Int64 {
-    get {
-      if case .sint64(let v)? = scalar {return v}
-      return 0
-    }
-    set {scalar = .sint64(newValue)}
-  }
-
-  /// fixed32 fixed32 = 9;
-  /// fixed64 fixed64 = 10;
-  /// sfixed32 sfixed32 = 11;
-  /// sfixed64 sfixed64 = 12;
-  var bool: Bool {
-    get {
-      if case .bool(let v)? = scalar {return v}
-      return false
-    }
-    set {scalar = .bool(newValue)}
-  }
-
-  var string: String {
-    get {
-      if case .string(let v)? = scalar {return v}
-      return String()
-    }
-    set {scalar = .string(newValue)}
-  }
-
-  var bytes: Data {
-    get {
-      if case .bytes(let v)? = scalar {return v}
-      return Data()
-    }
-    set {scalar = .bytes(newValue)}
-  }
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  /// The following `oneof` contains all types that ProtoBuf considers to be
-  /// "Scalar Value Types". Commented-out types are listed for reference and
-  /// might be enabled in future releases. Source:
-  /// https://developers.google.com/protocol-buffers/docs/proto3#scalar
-  enum OneOf_Scalar: Equatable {
-    case double(Double)
     /// float float = 2;
     /// int32 int32 = 3;
     /// int64 int64 = 4;
     /// uint32 uint32 = 5;
     /// uint64 uint64 = 6;
     /// sint32 sint32 = 7;
-    case sint64(Int64)
+    var sint64: Int64 {
+        get {
+            if case let .sint64(v)? = scalar { return v }
+            return 0
+        }
+        set { scalar = .sint64(newValue) }
+    }
+
     /// fixed32 fixed32 = 9;
     /// fixed64 fixed64 = 10;
     /// sfixed32 sfixed32 = 11;
     /// sfixed64 sfixed64 = 12;
-    case bool(Bool)
-    case string(String)
-    case bytes(Data)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: Flwr_Proto_Scalar.OneOf_Scalar, rhs: Flwr_Proto_Scalar.OneOf_Scalar) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.double, .double): return {
-        guard case .double(let l) = lhs, case .double(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.sint64, .sint64): return {
-        guard case .sint64(let l) = lhs, case .sint64(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.bool, .bool): return {
-        guard case .bool(let l) = lhs, case .bool(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.string, .string): return {
-        guard case .string(let l) = lhs, case .string(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.bytes, .bytes): return {
-        guard case .bytes(let l) = lhs, case .bytes(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
+    var bool: Bool {
+        get {
+            if case let .bool(v)? = scalar { return v }
+            return false
+        }
+        set { scalar = .bool(newValue) }
     }
-  #endif
-  }
 
-  init() {}
+    var string: String {
+        get {
+            if case let .string(v)? = scalar { return v }
+            return String()
+        }
+        set { scalar = .string(newValue) }
+    }
+
+    var bytes: Data {
+        get {
+            if case let .bytes(v)? = scalar { return v }
+            return Data()
+        }
+        set { scalar = .bytes(newValue) }
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    /// The following `oneof` contains all types that ProtoBuf considers to be
+    /// "Scalar Value Types". Commented-out types are listed for reference and
+    /// might be enabled in future releases. Source:
+    /// https://developers.google.com/protocol-buffers/docs/proto3#scalar
+    enum OneOf_Scalar: Equatable {
+        case double(Double)
+        /// float float = 2;
+        /// int32 int32 = 3;
+        /// int64 int64 = 4;
+        /// uint32 uint32 = 5;
+        /// uint64 uint64 = 6;
+        /// sint32 sint32 = 7;
+        case sint64(Int64)
+        /// fixed32 fixed32 = 9;
+        /// fixed64 fixed64 = 10;
+        /// sfixed32 sfixed32 = 11;
+        /// sfixed64 sfixed64 = 12;
+        case bool(Bool)
+        case string(String)
+        case bytes(Data)
+
+        #if !swift(>=4.1)
+            static func == (lhs: Flwr_Proto_Scalar.OneOf_Scalar, rhs: Flwr_Proto_Scalar.OneOf_Scalar) -> Bool {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch (lhs, rhs) {
+                case (.double, .double): return {
+                        guard case let .double(l) = lhs, case let .double(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.sint64, .sint64): return {
+                        guard case let .sint64(l) = lhs, case let .sint64(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.bool, .bool): return {
+                        guard case let .bool(l) = lhs, case let .bool(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.string, .string): return {
+                        guard case let .string(l) = lhs, case let .string(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.bytes, .bytes): return {
+                        guard case let .bytes(l) = lhs, case let .bytes(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                default: return false
+                }
+            }
+        #endif
+    }
+
+    init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension Flwr_Proto_Code: @unchecked Sendable {}
-extension Flwr_Proto_Reason: @unchecked Sendable {}
-extension Flwr_Proto_Status: @unchecked Sendable {}
-extension Flwr_Proto_Parameters: @unchecked Sendable {}
-extension Flwr_Proto_ServerMessage: @unchecked Sendable {}
-extension Flwr_Proto_ServerMessage.OneOf_Msg: @unchecked Sendable {}
-extension Flwr_Proto_ServerMessage.ReconnectIns: @unchecked Sendable {}
-extension Flwr_Proto_ServerMessage.GetPropertiesIns: @unchecked Sendable {}
-extension Flwr_Proto_ServerMessage.GetParametersIns: @unchecked Sendable {}
-extension Flwr_Proto_ServerMessage.FitIns: @unchecked Sendable {}
-extension Flwr_Proto_ServerMessage.EvaluateIns: @unchecked Sendable {}
-extension Flwr_Proto_ClientMessage: @unchecked Sendable {}
-extension Flwr_Proto_ClientMessage.OneOf_Msg: @unchecked Sendable {}
-extension Flwr_Proto_ClientMessage.DisconnectRes: @unchecked Sendable {}
-extension Flwr_Proto_ClientMessage.GetPropertiesRes: @unchecked Sendable {}
-extension Flwr_Proto_ClientMessage.GetParametersRes: @unchecked Sendable {}
-extension Flwr_Proto_ClientMessage.FitRes: @unchecked Sendable {}
-extension Flwr_Proto_ClientMessage.EvaluateRes: @unchecked Sendable {}
-extension Flwr_Proto_Scalar: @unchecked Sendable {}
-extension Flwr_Proto_Scalar.OneOf_Scalar: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
+    extension Flwr_Proto_Code: @unchecked Sendable {}
+    extension Flwr_Proto_Reason: @unchecked Sendable {}
+    extension Flwr_Proto_Status: @unchecked Sendable {}
+    extension Flwr_Proto_Parameters: @unchecked Sendable {}
+    extension Flwr_Proto_ServerMessage: @unchecked Sendable {}
+    extension Flwr_Proto_ServerMessage.OneOf_Msg: @unchecked Sendable {}
+    extension Flwr_Proto_ServerMessage.ReconnectIns: @unchecked Sendable {}
+    extension Flwr_Proto_ServerMessage.GetPropertiesIns: @unchecked Sendable {}
+    extension Flwr_Proto_ServerMessage.GetParametersIns: @unchecked Sendable {}
+    extension Flwr_Proto_ServerMessage.FitIns: @unchecked Sendable {}
+    extension Flwr_Proto_ServerMessage.EvaluateIns: @unchecked Sendable {}
+    extension Flwr_Proto_ClientMessage: @unchecked Sendable {}
+    extension Flwr_Proto_ClientMessage.OneOf_Msg: @unchecked Sendable {}
+    extension Flwr_Proto_ClientMessage.DisconnectRes: @unchecked Sendable {}
+    extension Flwr_Proto_ClientMessage.GetPropertiesRes: @unchecked Sendable {}
+    extension Flwr_Proto_ClientMessage.GetParametersRes: @unchecked Sendable {}
+    extension Flwr_Proto_ClientMessage.FitRes: @unchecked Sendable {}
+    extension Flwr_Proto_ClientMessage.EvaluateRes: @unchecked Sendable {}
+    extension Flwr_Proto_Scalar: @unchecked Sendable {}
+    extension Flwr_Proto_Scalar.OneOf_Scalar: @unchecked Sendable {}
+#endif // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "flwr.proto"
+private let _protobuf_package = "flwr.proto"
 
 extension Flwr_Proto_Code: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "OK"),
-    1: .same(proto: "GET_PROPERTIES_NOT_IMPLEMENTED"),
-    2: .same(proto: "GET_PARAMETERS_NOT_IMPLEMENTED"),
-    3: .same(proto: "FIT_NOT_IMPLEMENTED"),
-    4: .same(proto: "EVALUATE_NOT_IMPLEMENTED"),
-  ]
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        0: .same(proto: "OK"),
+        1: .same(proto: "GET_PROPERTIES_NOT_IMPLEMENTED"),
+        2: .same(proto: "GET_PARAMETERS_NOT_IMPLEMENTED"),
+        3: .same(proto: "FIT_NOT_IMPLEMENTED"),
+        4: .same(proto: "EVALUATE_NOT_IMPLEMENTED"),
+    ]
 }
 
 extension Flwr_Proto_Reason: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UNKNOWN"),
-    1: .same(proto: "RECONNECT"),
-    2: .same(proto: "POWER_DISCONNECTED"),
-    3: .same(proto: "WIFI_UNAVAILABLE"),
-    4: .same(proto: "ACK"),
-  ]
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        0: .same(proto: "UNKNOWN"),
+        1: .same(proto: "RECONNECT"),
+        2: .same(proto: "POWER_DISCONNECTED"),
+        3: .same(proto: "WIFI_UNAVAILABLE"),
+        4: .same(proto: "ACK"),
+    ]
 }
 
 extension Flwr_Proto_Status: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Status"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Status"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "code"),
+        2: .same(proto: "message"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularEnumField(value: &code)
+            case 2: try try decoder.decodeSingularStringField(value: &message)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if code != .ok {
+            try visitor.visitSingularEnumField(value: code, fieldNumber: 1)
+        }
+        if !message.isEmpty {
+            try visitor.visitSingularStringField(value: message, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_Status, rhs: Flwr_Proto_Status) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.message != rhs.message {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_Status, rhs: Flwr_Proto_Status) -> Bool {
+        if lhs.code != rhs.code { return false }
+        if lhs.message != rhs.message { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_Parameters: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Parameters"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "tensors"),
-    2: .standard(proto: "tensor_type"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Parameters"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "tensors"),
+        2: .standard(proto: "tensor_type"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedBytesField(value: &self.tensors) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.tensorType) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeRepeatedBytesField(value: &tensors)
+            case 2: try try decoder.decodeSingularStringField(value: &tensorType)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.tensors.isEmpty {
-      try visitor.visitRepeatedBytesField(value: self.tensors, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if !tensors.isEmpty {
+            try visitor.visitRepeatedBytesField(value: tensors, fieldNumber: 1)
+        }
+        if !tensorType.isEmpty {
+            try visitor.visitSingularStringField(value: tensorType, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.tensorType.isEmpty {
-      try visitor.visitSingularStringField(value: self.tensorType, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_Parameters, rhs: Flwr_Proto_Parameters) -> Bool {
-    if lhs.tensors != rhs.tensors {return false}
-    if lhs.tensorType != rhs.tensorType {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_Parameters, rhs: Flwr_Proto_Parameters) -> Bool {
+        if lhs.tensors != rhs.tensors { return false }
+        if lhs.tensorType != rhs.tensorType { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ServerMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ServerMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "reconnect_ins"),
-    2: .standard(proto: "get_properties_ins"),
-    3: .standard(proto: "get_parameters_ins"),
-    4: .standard(proto: "fit_ins"),
-    5: .standard(proto: "evaluate_ins"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".ServerMessage"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "reconnect_ins"),
+        2: .standard(proto: "get_properties_ins"),
+        3: .standard(proto: "get_parameters_ins"),
+        4: .standard(proto: "fit_ins"),
+        5: .standard(proto: "evaluate_ins"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try {
-        var v: Flwr_Proto_ServerMessage.ReconnectIns?
-        var hadOneofValue = false
-        if let current = self.msg {
-          hadOneofValue = true
-          if case .reconnectIns(let m) = current {v = m}
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try {
+                    var v: Flwr_Proto_ServerMessage.ReconnectIns?
+                    var hadOneofValue = false
+                    if let current = self.msg {
+                        hadOneofValue = true
+                        if case let .reconnectIns(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msg = .reconnectIns(v)
+                    }
+                }()
+            case 2: try {
+                    var v: Flwr_Proto_ServerMessage.GetPropertiesIns?
+                    var hadOneofValue = false
+                    if let current = self.msg {
+                        hadOneofValue = true
+                        if case let .getPropertiesIns(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msg = .getPropertiesIns(v)
+                    }
+                }()
+            case 3: try {
+                    var v: Flwr_Proto_ServerMessage.GetParametersIns?
+                    var hadOneofValue = false
+                    if let current = self.msg {
+                        hadOneofValue = true
+                        if case let .getParametersIns(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msg = .getParametersIns(v)
+                    }
+                }()
+            case 4: try {
+                    var v: Flwr_Proto_ServerMessage.FitIns?
+                    var hadOneofValue = false
+                    if let current = self.msg {
+                        hadOneofValue = true
+                        if case let .fitIns(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msg = .fitIns(v)
+                    }
+                }()
+            case 5: try {
+                    var v: Flwr_Proto_ServerMessage.EvaluateIns?
+                    var hadOneofValue = false
+                    if let current = self.msg {
+                        hadOneofValue = true
+                        if case let .evaluateIns(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msg = .evaluateIns(v)
+                    }
+                }()
+            default: break
+            }
         }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msg = .reconnectIns(v)
-        }
-      }()
-      case 2: try {
-        var v: Flwr_Proto_ServerMessage.GetPropertiesIns?
-        var hadOneofValue = false
-        if let current = self.msg {
-          hadOneofValue = true
-          if case .getPropertiesIns(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msg = .getPropertiesIns(v)
-        }
-      }()
-      case 3: try {
-        var v: Flwr_Proto_ServerMessage.GetParametersIns?
-        var hadOneofValue = false
-        if let current = self.msg {
-          hadOneofValue = true
-          if case .getParametersIns(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msg = .getParametersIns(v)
-        }
-      }()
-      case 4: try {
-        var v: Flwr_Proto_ServerMessage.FitIns?
-        var hadOneofValue = false
-        if let current = self.msg {
-          hadOneofValue = true
-          if case .fitIns(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msg = .fitIns(v)
-        }
-      }()
-      case 5: try {
-        var v: Flwr_Proto_ServerMessage.EvaluateIns?
-        var hadOneofValue = false
-        if let current = self.msg {
-          hadOneofValue = true
-          if case .evaluateIns(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msg = .evaluateIns(v)
-        }
-      }()
-      default: break
-      }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.msg {
-    case .reconnectIns?: try {
-      guard case .reconnectIns(let v)? = self.msg else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }()
-    case .getPropertiesIns?: try {
-      guard case .getPropertiesIns(let v)? = self.msg else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }()
-    case .getParametersIns?: try {
-      guard case .getParametersIns(let v)? = self.msg else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    }()
-    case .fitIns?: try {
-      guard case .fitIns(let v)? = self.msg else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    }()
-    case .evaluateIns?: try {
-      guard case .evaluateIns(let v)? = self.msg else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    }()
-    case nil: break
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        switch msg {
+        case .reconnectIns?: try {
+                guard case let .reconnectIns(v)? = self.msg else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+            }()
+        case .getPropertiesIns?: try {
+                guard case let .getPropertiesIns(v)? = self.msg else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+            }()
+        case .getParametersIns?: try {
+                guard case let .getParametersIns(v)? = self.msg else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+            }()
+        case .fitIns?: try {
+                guard case let .fitIns(v)? = self.msg else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+            }()
+        case .evaluateIns?: try {
+                guard case let .evaluateIns(v)? = self.msg else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+            }()
+        case nil: break
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_ServerMessage, rhs: Flwr_Proto_ServerMessage) -> Bool {
-    if lhs.msg != rhs.msg {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ServerMessage, rhs: Flwr_Proto_ServerMessage) -> Bool {
+        if lhs.msg != rhs.msg { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ServerMessage.ReconnectIns: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Flwr_Proto_ServerMessage.protoMessageName + ".ReconnectIns"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "seconds"),
-  ]
+    static let protoMessageName: String = Flwr_Proto_ServerMessage.protoMessageName + ".ReconnectIns"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "seconds"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.seconds) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularInt64Field(value: &seconds)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.seconds != 0 {
-      try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if seconds != 0 {
+            try visitor.visitSingularInt64Field(value: seconds, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_ServerMessage.ReconnectIns, rhs: Flwr_Proto_ServerMessage.ReconnectIns) -> Bool {
-    if lhs.seconds != rhs.seconds {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ServerMessage.ReconnectIns, rhs: Flwr_Proto_ServerMessage.ReconnectIns) -> Bool {
+        if lhs.seconds != rhs.seconds { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ServerMessage.GetPropertiesIns: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Flwr_Proto_ServerMessage.protoMessageName + ".GetPropertiesIns"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "config"),
-  ]
+    static let protoMessageName: String = Flwr_Proto_ServerMessage.protoMessageName + ".GetPropertiesIns"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "config"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: &self.config) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: &self.config) }()
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.config.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: self.config, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if !config.isEmpty {
+            try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: config, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_ServerMessage.GetPropertiesIns, rhs: Flwr_Proto_ServerMessage.GetPropertiesIns) -> Bool {
-    if lhs.config != rhs.config {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ServerMessage.GetPropertiesIns, rhs: Flwr_Proto_ServerMessage.GetPropertiesIns) -> Bool {
+        if lhs.config != rhs.config { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ServerMessage.GetParametersIns: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Flwr_Proto_ServerMessage.protoMessageName + ".GetParametersIns"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "config"),
-  ]
+    static let protoMessageName: String = Flwr_Proto_ServerMessage.protoMessageName + ".GetParametersIns"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "config"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: &self.config) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: &self.config) }()
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.config.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: self.config, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if !config.isEmpty {
+            try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: config, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_ServerMessage.GetParametersIns, rhs: Flwr_Proto_ServerMessage.GetParametersIns) -> Bool {
-    if lhs.config != rhs.config {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ServerMessage.GetParametersIns, rhs: Flwr_Proto_ServerMessage.GetParametersIns) -> Bool {
+        if lhs.config != rhs.config { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ServerMessage.FitIns: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Flwr_Proto_ServerMessage.protoMessageName + ".FitIns"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "parameters"),
-    2: .same(proto: "config"),
-  ]
+    static let protoMessageName: String = Flwr_Proto_ServerMessage.protoMessageName + ".FitIns"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "parameters"),
+        2: .same(proto: "config"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._parameters) }()
-      case 2: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: &self.config) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularMessageField(value: &_parameters)
+            case 2: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: &self.config) }()
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._parameters {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    if !self.config.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: self.config, fieldNumber: 2)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._parameters {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        if !config.isEmpty {
+            try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: config, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_ServerMessage.FitIns, rhs: Flwr_Proto_ServerMessage.FitIns) -> Bool {
-    if lhs._parameters != rhs._parameters {return false}
-    if lhs.config != rhs.config {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ServerMessage.FitIns, rhs: Flwr_Proto_ServerMessage.FitIns) -> Bool {
+        if lhs._parameters != rhs._parameters { return false }
+        if lhs.config != rhs.config { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ServerMessage.EvaluateIns: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Flwr_Proto_ServerMessage.protoMessageName + ".EvaluateIns"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "parameters"),
-    2: .same(proto: "config"),
-  ]
+    static let protoMessageName: String = Flwr_Proto_ServerMessage.protoMessageName + ".EvaluateIns"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "parameters"),
+        2: .same(proto: "config"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._parameters) }()
-      case 2: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: &self.config) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularMessageField(value: &_parameters)
+            case 2: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: &self.config) }()
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._parameters {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    if !self.config.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: self.config, fieldNumber: 2)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._parameters {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        if !config.isEmpty {
+            try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: config, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_ServerMessage.EvaluateIns, rhs: Flwr_Proto_ServerMessage.EvaluateIns) -> Bool {
-    if lhs._parameters != rhs._parameters {return false}
-    if lhs.config != rhs.config {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ServerMessage.EvaluateIns, rhs: Flwr_Proto_ServerMessage.EvaluateIns) -> Bool {
+        if lhs._parameters != rhs._parameters { return false }
+        if lhs.config != rhs.config { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ClientMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ClientMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "disconnect_res"),
-    2: .standard(proto: "get_properties_res"),
-    3: .standard(proto: "get_parameters_res"),
-    4: .standard(proto: "fit_res"),
-    5: .standard(proto: "evaluate_res"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".ClientMessage"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "disconnect_res"),
+        2: .standard(proto: "get_properties_res"),
+        3: .standard(proto: "get_parameters_res"),
+        4: .standard(proto: "fit_res"),
+        5: .standard(proto: "evaluate_res"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try {
-        var v: Flwr_Proto_ClientMessage.DisconnectRes?
-        var hadOneofValue = false
-        if let current = self.msg {
-          hadOneofValue = true
-          if case .disconnectRes(let m) = current {v = m}
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try {
+                    var v: Flwr_Proto_ClientMessage.DisconnectRes?
+                    var hadOneofValue = false
+                    if let current = self.msg {
+                        hadOneofValue = true
+                        if case let .disconnectRes(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msg = .disconnectRes(v)
+                    }
+                }()
+            case 2: try {
+                    var v: Flwr_Proto_ClientMessage.GetPropertiesRes?
+                    var hadOneofValue = false
+                    if let current = self.msg {
+                        hadOneofValue = true
+                        if case let .getPropertiesRes(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msg = .getPropertiesRes(v)
+                    }
+                }()
+            case 3: try {
+                    var v: Flwr_Proto_ClientMessage.GetParametersRes?
+                    var hadOneofValue = false
+                    if let current = self.msg {
+                        hadOneofValue = true
+                        if case let .getParametersRes(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msg = .getParametersRes(v)
+                    }
+                }()
+            case 4: try {
+                    var v: Flwr_Proto_ClientMessage.FitRes?
+                    var hadOneofValue = false
+                    if let current = self.msg {
+                        hadOneofValue = true
+                        if case let .fitRes(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msg = .fitRes(v)
+                    }
+                }()
+            case 5: try {
+                    var v: Flwr_Proto_ClientMessage.EvaluateRes?
+                    var hadOneofValue = false
+                    if let current = self.msg {
+                        hadOneofValue = true
+                        if case let .evaluateRes(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msg = .evaluateRes(v)
+                    }
+                }()
+            default: break
+            }
         }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msg = .disconnectRes(v)
-        }
-      }()
-      case 2: try {
-        var v: Flwr_Proto_ClientMessage.GetPropertiesRes?
-        var hadOneofValue = false
-        if let current = self.msg {
-          hadOneofValue = true
-          if case .getPropertiesRes(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msg = .getPropertiesRes(v)
-        }
-      }()
-      case 3: try {
-        var v: Flwr_Proto_ClientMessage.GetParametersRes?
-        var hadOneofValue = false
-        if let current = self.msg {
-          hadOneofValue = true
-          if case .getParametersRes(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msg = .getParametersRes(v)
-        }
-      }()
-      case 4: try {
-        var v: Flwr_Proto_ClientMessage.FitRes?
-        var hadOneofValue = false
-        if let current = self.msg {
-          hadOneofValue = true
-          if case .fitRes(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msg = .fitRes(v)
-        }
-      }()
-      case 5: try {
-        var v: Flwr_Proto_ClientMessage.EvaluateRes?
-        var hadOneofValue = false
-        if let current = self.msg {
-          hadOneofValue = true
-          if case .evaluateRes(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msg = .evaluateRes(v)
-        }
-      }()
-      default: break
-      }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.msg {
-    case .disconnectRes?: try {
-      guard case .disconnectRes(let v)? = self.msg else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }()
-    case .getPropertiesRes?: try {
-      guard case .getPropertiesRes(let v)? = self.msg else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }()
-    case .getParametersRes?: try {
-      guard case .getParametersRes(let v)? = self.msg else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    }()
-    case .fitRes?: try {
-      guard case .fitRes(let v)? = self.msg else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    }()
-    case .evaluateRes?: try {
-      guard case .evaluateRes(let v)? = self.msg else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    }()
-    case nil: break
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        switch msg {
+        case .disconnectRes?: try {
+                guard case let .disconnectRes(v)? = self.msg else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+            }()
+        case .getPropertiesRes?: try {
+                guard case let .getPropertiesRes(v)? = self.msg else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+            }()
+        case .getParametersRes?: try {
+                guard case let .getParametersRes(v)? = self.msg else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+            }()
+        case .fitRes?: try {
+                guard case let .fitRes(v)? = self.msg else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+            }()
+        case .evaluateRes?: try {
+                guard case let .evaluateRes(v)? = self.msg else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+            }()
+        case nil: break
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_ClientMessage, rhs: Flwr_Proto_ClientMessage) -> Bool {
-    if lhs.msg != rhs.msg {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ClientMessage, rhs: Flwr_Proto_ClientMessage) -> Bool {
+        if lhs.msg != rhs.msg { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ClientMessage.DisconnectRes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Flwr_Proto_ClientMessage.protoMessageName + ".DisconnectRes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "reason"),
-  ]
+    static let protoMessageName: String = Flwr_Proto_ClientMessage.protoMessageName + ".DisconnectRes"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "reason"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.reason) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularEnumField(value: &reason)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.reason != .unknown {
-      try visitor.visitSingularEnumField(value: self.reason, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if reason != .unknown {
+            try visitor.visitSingularEnumField(value: reason, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_ClientMessage.DisconnectRes, rhs: Flwr_Proto_ClientMessage.DisconnectRes) -> Bool {
-    if lhs.reason != rhs.reason {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ClientMessage.DisconnectRes, rhs: Flwr_Proto_ClientMessage.DisconnectRes) -> Bool {
+        if lhs.reason != rhs.reason { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ClientMessage.GetPropertiesRes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Flwr_Proto_ClientMessage.protoMessageName + ".GetPropertiesRes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "status"),
-    2: .same(proto: "properties"),
-  ]
+    static let protoMessageName: String = Flwr_Proto_ClientMessage.protoMessageName + ".GetPropertiesRes"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "status"),
+        2: .same(proto: "properties"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._status) }()
-      case 2: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: &self.properties) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularMessageField(value: &_status)
+            case 2: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: &self.properties) }()
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._status {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    if !self.properties.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: self.properties, fieldNumber: 2)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._status {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        if !properties.isEmpty {
+            try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: properties, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_ClientMessage.GetPropertiesRes, rhs: Flwr_Proto_ClientMessage.GetPropertiesRes) -> Bool {
-    if lhs._status != rhs._status {return false}
-    if lhs.properties != rhs.properties {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ClientMessage.GetPropertiesRes, rhs: Flwr_Proto_ClientMessage.GetPropertiesRes) -> Bool {
+        if lhs._status != rhs._status { return false }
+        if lhs.properties != rhs.properties { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ClientMessage.GetParametersRes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Flwr_Proto_ClientMessage.protoMessageName + ".GetParametersRes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "status"),
-    2: .same(proto: "parameters"),
-  ]
+    static let protoMessageName: String = Flwr_Proto_ClientMessage.protoMessageName + ".GetParametersRes"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "status"),
+        2: .same(proto: "parameters"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._status) }()
-      case 2: try { try decoder.decodeSingularMessageField(value: &self._parameters) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularMessageField(value: &_status)
+            case 2: try try decoder.decodeSingularMessageField(value: &_parameters)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._status {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._parameters {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._status {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        try { if let v = self._parameters {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+        } }()
+        try unknownFields.traverse(visitor: &visitor)
+    }
 
-  static func ==(lhs: Flwr_Proto_ClientMessage.GetParametersRes, rhs: Flwr_Proto_ClientMessage.GetParametersRes) -> Bool {
-    if lhs._status != rhs._status {return false}
-    if lhs._parameters != rhs._parameters {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ClientMessage.GetParametersRes, rhs: Flwr_Proto_ClientMessage.GetParametersRes) -> Bool {
+        if lhs._status != rhs._status { return false }
+        if lhs._parameters != rhs._parameters { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ClientMessage.FitRes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Flwr_Proto_ClientMessage.protoMessageName + ".FitRes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "status"),
-    2: .same(proto: "parameters"),
-    3: .standard(proto: "num_examples"),
-    4: .same(proto: "metrics"),
-  ]
+    static let protoMessageName: String = Flwr_Proto_ClientMessage.protoMessageName + ".FitRes"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "status"),
+        2: .same(proto: "parameters"),
+        3: .standard(proto: "num_examples"),
+        4: .same(proto: "metrics"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._status) }()
-      case 2: try { try decoder.decodeSingularMessageField(value: &self._parameters) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.numExamples) }()
-      case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: &self.metrics) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularMessageField(value: &_status)
+            case 2: try try decoder.decodeSingularMessageField(value: &_parameters)
+            case 3: try try decoder.decodeSingularInt64Field(value: &numExamples)
+            case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: &self.metrics) }()
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._status {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._parameters {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    } }()
-    if self.numExamples != 0 {
-      try visitor.visitSingularInt64Field(value: self.numExamples, fieldNumber: 3)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._status {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        try { if let v = self._parameters {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+        } }()
+        if numExamples != 0 {
+            try visitor.visitSingularInt64Field(value: numExamples, fieldNumber: 3)
+        }
+        if !metrics.isEmpty {
+            try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: metrics, fieldNumber: 4)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.metrics.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: self.metrics, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_ClientMessage.FitRes, rhs: Flwr_Proto_ClientMessage.FitRes) -> Bool {
-    if lhs._status != rhs._status {return false}
-    if lhs._parameters != rhs._parameters {return false}
-    if lhs.numExamples != rhs.numExamples {return false}
-    if lhs.metrics != rhs.metrics {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ClientMessage.FitRes, rhs: Flwr_Proto_ClientMessage.FitRes) -> Bool {
+        if lhs._status != rhs._status { return false }
+        if lhs._parameters != rhs._parameters { return false }
+        if lhs.numExamples != rhs.numExamples { return false }
+        if lhs.metrics != rhs.metrics { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_ClientMessage.EvaluateRes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Flwr_Proto_ClientMessage.protoMessageName + ".EvaluateRes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "status"),
-    2: .same(proto: "loss"),
-    3: .standard(proto: "num_examples"),
-    4: .same(proto: "metrics"),
-  ]
+    static let protoMessageName: String = Flwr_Proto_ClientMessage.protoMessageName + ".EvaluateRes"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "status"),
+        2: .same(proto: "loss"),
+        3: .standard(proto: "num_examples"),
+        4: .same(proto: "metrics"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._status) }()
-      case 2: try { try decoder.decodeSingularFloatField(value: &self.loss) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.numExamples) }()
-      case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: &self.metrics) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularMessageField(value: &_status)
+            case 2: try try decoder.decodeSingularFloatField(value: &loss)
+            case 3: try try decoder.decodeSingularInt64Field(value: &numExamples)
+            case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: &self.metrics) }()
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._status {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    if self.loss != 0 {
-      try visitor.visitSingularFloatField(value: self.loss, fieldNumber: 2)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._status {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        if loss != 0 {
+            try visitor.visitSingularFloatField(value: loss, fieldNumber: 2)
+        }
+        if numExamples != 0 {
+            try visitor.visitSingularInt64Field(value: numExamples, fieldNumber: 3)
+        }
+        if !metrics.isEmpty {
+            try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString, Flwr_Proto_Scalar>.self, value: metrics, fieldNumber: 4)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.numExamples != 0 {
-      try visitor.visitSingularInt64Field(value: self.numExamples, fieldNumber: 3)
-    }
-    if !self.metrics.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Flwr_Proto_Scalar>.self, value: self.metrics, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_ClientMessage.EvaluateRes, rhs: Flwr_Proto_ClientMessage.EvaluateRes) -> Bool {
-    if lhs._status != rhs._status {return false}
-    if lhs.loss != rhs.loss {return false}
-    if lhs.numExamples != rhs.numExamples {return false}
-    if lhs.metrics != rhs.metrics {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_ClientMessage.EvaluateRes, rhs: Flwr_Proto_ClientMessage.EvaluateRes) -> Bool {
+        if lhs._status != rhs._status { return false }
+        if lhs.loss != rhs.loss { return false }
+        if lhs.numExamples != rhs.numExamples { return false }
+        if lhs.metrics != rhs.metrics { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Flwr_Proto_Scalar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Scalar"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "double"),
-    8: .same(proto: "sint64"),
-    13: .same(proto: "bool"),
-    14: .same(proto: "string"),
-    15: .same(proto: "bytes"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Scalar"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "double"),
+        8: .same(proto: "sint64"),
+        13: .same(proto: "bool"),
+        14: .same(proto: "string"),
+        15: .same(proto: "bytes"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try {
-        var v: Double?
-        try decoder.decodeSingularDoubleField(value: &v)
-        if let v = v {
-          if self.scalar != nil {try decoder.handleConflictingOneOf()}
-          self.scalar = .double(v)
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try {
+                    var v: Double?
+                    try decoder.decodeSingularDoubleField(value: &v)
+                    if let v = v {
+                        if self.scalar != nil { try decoder.handleConflictingOneOf() }
+                        self.scalar = .double(v)
+                    }
+                }()
+            case 8: try {
+                    var v: Int64?
+                    try decoder.decodeSingularSInt64Field(value: &v)
+                    if let v = v {
+                        if self.scalar != nil { try decoder.handleConflictingOneOf() }
+                        self.scalar = .sint64(v)
+                    }
+                }()
+            case 13: try {
+                    var v: Bool?
+                    try decoder.decodeSingularBoolField(value: &v)
+                    if let v = v {
+                        if self.scalar != nil { try decoder.handleConflictingOneOf() }
+                        self.scalar = .bool(v)
+                    }
+                }()
+            case 14: try {
+                    var v: String?
+                    try decoder.decodeSingularStringField(value: &v)
+                    if let v = v {
+                        if self.scalar != nil { try decoder.handleConflictingOneOf() }
+                        self.scalar = .string(v)
+                    }
+                }()
+            case 15: try {
+                    var v: Data?
+                    try decoder.decodeSingularBytesField(value: &v)
+                    if let v = v {
+                        if self.scalar != nil { try decoder.handleConflictingOneOf() }
+                        self.scalar = .bytes(v)
+                    }
+                }()
+            default: break
+            }
         }
-      }()
-      case 8: try {
-        var v: Int64?
-        try decoder.decodeSingularSInt64Field(value: &v)
-        if let v = v {
-          if self.scalar != nil {try decoder.handleConflictingOneOf()}
-          self.scalar = .sint64(v)
-        }
-      }()
-      case 13: try {
-        var v: Bool?
-        try decoder.decodeSingularBoolField(value: &v)
-        if let v = v {
-          if self.scalar != nil {try decoder.handleConflictingOneOf()}
-          self.scalar = .bool(v)
-        }
-      }()
-      case 14: try {
-        var v: String?
-        try decoder.decodeSingularStringField(value: &v)
-        if let v = v {
-          if self.scalar != nil {try decoder.handleConflictingOneOf()}
-          self.scalar = .string(v)
-        }
-      }()
-      case 15: try {
-        var v: Data?
-        try decoder.decodeSingularBytesField(value: &v)
-        if let v = v {
-          if self.scalar != nil {try decoder.handleConflictingOneOf()}
-          self.scalar = .bytes(v)
-        }
-      }()
-      default: break
-      }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.scalar {
-    case .double?: try {
-      guard case .double(let v)? = self.scalar else { preconditionFailure() }
-      try visitor.visitSingularDoubleField(value: v, fieldNumber: 1)
-    }()
-    case .sint64?: try {
-      guard case .sint64(let v)? = self.scalar else { preconditionFailure() }
-      try visitor.visitSingularSInt64Field(value: v, fieldNumber: 8)
-    }()
-    case .bool?: try {
-      guard case .bool(let v)? = self.scalar else { preconditionFailure() }
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 13)
-    }()
-    case .string?: try {
-      guard case .string(let v)? = self.scalar else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 14)
-    }()
-    case .bytes?: try {
-      guard case .bytes(let v)? = self.scalar else { preconditionFailure() }
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 15)
-    }()
-    case nil: break
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        switch scalar {
+        case .double?: try {
+                guard case let .double(v)? = self.scalar else { preconditionFailure() }
+                try visitor.visitSingularDoubleField(value: v, fieldNumber: 1)
+            }()
+        case .sint64?: try {
+                guard case let .sint64(v)? = self.scalar else { preconditionFailure() }
+                try visitor.visitSingularSInt64Field(value: v, fieldNumber: 8)
+            }()
+        case .bool?: try {
+                guard case let .bool(v)? = self.scalar else { preconditionFailure() }
+                try visitor.visitSingularBoolField(value: v, fieldNumber: 13)
+            }()
+        case .string?: try {
+                guard case let .string(v)? = self.scalar else { preconditionFailure() }
+                try visitor.visitSingularStringField(value: v, fieldNumber: 14)
+            }()
+        case .bytes?: try {
+                guard case let .bytes(v)? = self.scalar else { preconditionFailure() }
+                try visitor.visitSingularBytesField(value: v, fieldNumber: 15)
+            }()
+        case nil: break
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Flwr_Proto_Scalar, rhs: Flwr_Proto_Scalar) -> Bool {
-    if lhs.scalar != rhs.scalar {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Flwr_Proto_Scalar, rhs: Flwr_Proto_Scalar) -> Bool {
+        if lhs.scalar != rhs.scalar { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }

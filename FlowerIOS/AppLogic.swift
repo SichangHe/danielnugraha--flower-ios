@@ -35,7 +35,8 @@ public class AppLogic: ObservableObject {
                     print(compiledModelUrl)
                     let modelInspect = try MLModelInspect(serializedData: Data(contentsOf: url))
                     let layerWrappers = modelInspect.getLayerWrappers()
-                    print("\(layerWrappers)")
+                    let layersDisplay = layerWrappers.map { "\($0.name): \($0.shape)" }.joined(separator: "\n")
+                    print(layersDisplay)
                     let mlFlwrClient = MLFlwrClient(layerWrappers: layerWrappers,
                                                     dataLoader: dataLoader,
                                                     compiledModelUrl: compiledModelUrl)
@@ -66,16 +67,16 @@ public enum TaskStatus: Equatable {
         switch self {
         case .idle:
             return "Start Federated Learning"
-        case .ongoing(let info):
+        case let .ongoing(info):
             return info
-        case .completed(let info):
+        case let .completed(info):
             return info
-        case .preparing(info: let info):
+        case let .preparing(info: info):
             return info
         }
     }
 
-    public static func ==(lhs: TaskStatus, rhs: TaskStatus) -> Bool {
+    public static func == (lhs: TaskStatus, rhs: TaskStatus) -> Bool {
         switch (lhs, rhs) {
         case (.idle, .idle):
             return true

@@ -20,12 +20,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+    typealias Version = _2
 }
 
-///*
+/// *
 /// A scaling operation.
 ///
 /// This function has the following formula:
@@ -45,57 +45,57 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// then it is cast to an integer. If that cast is lossy, then an
 /// error is generated.
 struct CoreML_Specification_Scaler {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var shiftValue: [Double] = []
+    var shiftValue: [Double] = []
 
-  var scaleValue: [Double] = []
+    var scaleValue: [Double] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "CoreML.Specification"
+private let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_Scaler: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Scaler"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "shiftValue"),
-    2: .same(proto: "scaleValue"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Scaler"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "shiftValue"),
+        2: .same(proto: "scaleValue"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedDoubleField(value: &self.shiftValue) }()
-      case 2: try { try decoder.decodeRepeatedDoubleField(value: &self.scaleValue) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeRepeatedDoubleField(value: &shiftValue)
+            case 2: try try decoder.decodeRepeatedDoubleField(value: &scaleValue)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.shiftValue.isEmpty {
-      try visitor.visitPackedDoubleField(value: self.shiftValue, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if !shiftValue.isEmpty {
+            try visitor.visitPackedDoubleField(value: shiftValue, fieldNumber: 1)
+        }
+        if !scaleValue.isEmpty {
+            try visitor.visitPackedDoubleField(value: scaleValue, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.scaleValue.isEmpty {
-      try visitor.visitPackedDoubleField(value: self.scaleValue, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_Scaler, rhs: CoreML_Specification_Scaler) -> Bool {
-    if lhs.shiftValue != rhs.shiftValue {return false}
-    if lhs.scaleValue != rhs.scaleValue {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_Scaler, rhs: CoreML_Specification_Scaler) -> Bool {
+        if lhs.shiftValue != rhs.shiftValue { return false }
+        if lhs.scaleValue != rhs.scaleValue { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }

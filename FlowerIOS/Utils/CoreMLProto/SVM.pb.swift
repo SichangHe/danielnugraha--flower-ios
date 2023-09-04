@@ -20,12 +20,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+    typealias Version = _2
 }
 
-///*
+/// *
 /// A linear kernel.
 ///
 /// This function has the following formula:
@@ -33,16 +33,16 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// .. math::
 ///     K(\boldsymbol{x}, \boldsymbol{x'}) = \boldsymbol{x}^T \boldsymbol{x'}
 struct CoreML_Specification_LinearKernel {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
-///*
+/// *
 /// A Gaussian radial basis function (RBF) kernel.
 ///
 /// This function has the following formula:
@@ -51,18 +51,18 @@ struct CoreML_Specification_LinearKernel {
 ///     K(\boldsymbol{x}, \boldsymbol{x'}) = \
 ///          \exp(-\gamma || \boldsymbol{x} - \boldsymbol{x'} ||^2 )
 struct CoreML_Specification_RBFKernel {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var gamma: Double = 0
+    var gamma: Double = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
-///*
+/// *
 /// A polynomial kernel.
 ///
 /// This function has the following formula:
@@ -71,22 +71,22 @@ struct CoreML_Specification_RBFKernel {
 ///     K(\boldsymbol{x}, \boldsymbol{x'}) = \
 ///           (\gamma \boldsymbol{x}^T \boldsymbol{x'} + c)^{degree}
 struct CoreML_Specification_PolyKernel {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var degree: Int32 = 0
+    var degree: Int32 = 0
 
-  var c: Double = 0
+    var c: Double = 0
 
-  var gamma: Double = 0
+    var gamma: Double = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
-///*
+/// *
 /// A sigmoid kernel.
 ///
 /// This function has the following formula:
@@ -95,1076 +95,1078 @@ struct CoreML_Specification_PolyKernel {
 ///     K(\boldsymbol{x}, \boldsymbol{x'}) = \
 ///           \tanh(\gamma \boldsymbol{x}^T \boldsymbol{x'} + c)
 struct CoreML_Specification_SigmoidKernel {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var gamma: Double = 0
+    var gamma: Double = 0
 
-  var c: Double = 0
+    var c: Double = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
-///*
+/// *
 /// A kernel.
 struct CoreML_Specification_Kernel {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var kernel: CoreML_Specification_Kernel.OneOf_Kernel? = nil
+    var kernel: CoreML_Specification_Kernel.OneOf_Kernel?
 
-  var linearKernel: CoreML_Specification_LinearKernel {
-    get {
-      if case .linearKernel(let v)? = kernel {return v}
-      return CoreML_Specification_LinearKernel()
+    var linearKernel: CoreML_Specification_LinearKernel {
+        get {
+            if case let .linearKernel(v)? = kernel { return v }
+            return CoreML_Specification_LinearKernel()
+        }
+        set { kernel = .linearKernel(newValue) }
     }
-    set {kernel = .linearKernel(newValue)}
-  }
 
-  var rbfKernel: CoreML_Specification_RBFKernel {
-    get {
-      if case .rbfKernel(let v)? = kernel {return v}
-      return CoreML_Specification_RBFKernel()
+    var rbfKernel: CoreML_Specification_RBFKernel {
+        get {
+            if case let .rbfKernel(v)? = kernel { return v }
+            return CoreML_Specification_RBFKernel()
+        }
+        set { kernel = .rbfKernel(newValue) }
     }
-    set {kernel = .rbfKernel(newValue)}
-  }
 
-  var polyKernel: CoreML_Specification_PolyKernel {
-    get {
-      if case .polyKernel(let v)? = kernel {return v}
-      return CoreML_Specification_PolyKernel()
+    var polyKernel: CoreML_Specification_PolyKernel {
+        get {
+            if case let .polyKernel(v)? = kernel { return v }
+            return CoreML_Specification_PolyKernel()
+        }
+        set { kernel = .polyKernel(newValue) }
     }
-    set {kernel = .polyKernel(newValue)}
-  }
 
-  var sigmoidKernel: CoreML_Specification_SigmoidKernel {
-    get {
-      if case .sigmoidKernel(let v)? = kernel {return v}
-      return CoreML_Specification_SigmoidKernel()
+    var sigmoidKernel: CoreML_Specification_SigmoidKernel {
+        get {
+            if case let .sigmoidKernel(v)? = kernel { return v }
+            return CoreML_Specification_SigmoidKernel()
+        }
+        set { kernel = .sigmoidKernel(newValue) }
     }
-    set {kernel = .sigmoidKernel(newValue)}
-  }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Kernel: Equatable {
-    case linearKernel(CoreML_Specification_LinearKernel)
-    case rbfKernel(CoreML_Specification_RBFKernel)
-    case polyKernel(CoreML_Specification_PolyKernel)
-    case sigmoidKernel(CoreML_Specification_SigmoidKernel)
+    enum OneOf_Kernel: Equatable {
+        case linearKernel(CoreML_Specification_LinearKernel)
+        case rbfKernel(CoreML_Specification_RBFKernel)
+        case polyKernel(CoreML_Specification_PolyKernel)
+        case sigmoidKernel(CoreML_Specification_SigmoidKernel)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_Kernel.OneOf_Kernel, rhs: CoreML_Specification_Kernel.OneOf_Kernel) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.linearKernel, .linearKernel): return {
-        guard case .linearKernel(let l) = lhs, case .linearKernel(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.rbfKernel, .rbfKernel): return {
-        guard case .rbfKernel(let l) = lhs, case .rbfKernel(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.polyKernel, .polyKernel): return {
-        guard case .polyKernel(let l) = lhs, case .polyKernel(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.sigmoidKernel, .sigmoidKernel): return {
-        guard case .sigmoidKernel(let l) = lhs, case .sigmoidKernel(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
+        #if !swift(>=4.1)
+            static func == (lhs: CoreML_Specification_Kernel.OneOf_Kernel, rhs: CoreML_Specification_Kernel.OneOf_Kernel) -> Bool {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch (lhs, rhs) {
+                case (.linearKernel, .linearKernel): return {
+                        guard case let .linearKernel(l) = lhs, case let .linearKernel(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.rbfKernel, .rbfKernel): return {
+                        guard case let .rbfKernel(l) = lhs, case let .rbfKernel(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.polyKernel, .polyKernel): return {
+                        guard case let .polyKernel(l) = lhs, case let .polyKernel(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.sigmoidKernel, .sigmoidKernel): return {
+                        guard case let .sigmoidKernel(l) = lhs, case let .sigmoidKernel(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                default: return false
+                }
+            }
+        #endif
     }
-  #endif
-  }
 
-  init() {}
+    init() {}
 }
 
-///*
+/// *
 /// A sparse node.
 struct CoreML_Specification_SparseNode {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  /// 1-based indexes, like libsvm
-  var index: Int32 = 0
+    /// 1-based indexes, like libsvm
+    var index: Int32 = 0
 
-  var value: Double = 0
+    var value: Double = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
-///*
+/// *
 /// A sparse vector.
 struct CoreML_Specification_SparseVector {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var nodes: [CoreML_Specification_SparseNode] = []
+    var nodes: [CoreML_Specification_SparseNode] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
-///*
+/// *
 /// One or more sparse support vectors.
 struct CoreML_Specification_SparseSupportVectors {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var vectors: [CoreML_Specification_SparseVector] = []
+    var vectors: [CoreML_Specification_SparseVector] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
-///*
+/// *
 /// A dense vector.
 struct CoreML_Specification_DenseVector {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var values: [Double] = []
+    var values: [Double] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
-///*
+/// *
 /// One or more dense support vectors.
 struct CoreML_Specification_DenseSupportVectors {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var vectors: [CoreML_Specification_DenseVector] = []
+    var vectors: [CoreML_Specification_DenseVector] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
-///*
+/// *
 /// One or more coefficients.
 struct CoreML_Specification_Coefficients {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var alpha: [Double] = []
+    var alpha: [Double] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
-///*
+/// *
 /// A support vector regressor.
 struct CoreML_Specification_SupportVectorRegressor {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var kernel: CoreML_Specification_Kernel {
-    get {return _kernel ?? CoreML_Specification_Kernel()}
-    set {_kernel = newValue}
-  }
-  /// Returns true if `kernel` has been explicitly set.
-  var hasKernel: Bool {return self._kernel != nil}
-  /// Clears the value of `kernel`. Subsequent reads from it will return its default value.
-  mutating func clearKernel() {self._kernel = nil}
-
-  /// Support vectors, either sparse or dense format
-  var supportVectors: CoreML_Specification_SupportVectorRegressor.OneOf_SupportVectors? = nil
-
-  var sparseSupportVectors: CoreML_Specification_SparseSupportVectors {
-    get {
-      if case .sparseSupportVectors(let v)? = supportVectors {return v}
-      return CoreML_Specification_SparseSupportVectors()
+    var kernel: CoreML_Specification_Kernel {
+        get { return _kernel ?? CoreML_Specification_Kernel() }
+        set { _kernel = newValue }
     }
-    set {supportVectors = .sparseSupportVectors(newValue)}
-  }
 
-  var denseSupportVectors: CoreML_Specification_DenseSupportVectors {
-    get {
-      if case .denseSupportVectors(let v)? = supportVectors {return v}
-      return CoreML_Specification_DenseSupportVectors()
+    /// Returns true if `kernel` has been explicitly set.
+    var hasKernel: Bool { return self._kernel != nil }
+    /// Clears the value of `kernel`. Subsequent reads from it will return its default value.
+    mutating func clearKernel() { _kernel = nil }
+
+    /// Support vectors, either sparse or dense format
+    var supportVectors: CoreML_Specification_SupportVectorRegressor.OneOf_SupportVectors?
+
+    var sparseSupportVectors: CoreML_Specification_SparseSupportVectors {
+        get {
+            if case let .sparseSupportVectors(v)? = supportVectors { return v }
+            return CoreML_Specification_SparseSupportVectors()
+        }
+        set { supportVectors = .sparseSupportVectors(newValue) }
     }
-    set {supportVectors = .denseSupportVectors(newValue)}
-  }
 
-  /// Coefficients, one for each support vector
-  var coefficients: CoreML_Specification_Coefficients {
-    get {return _coefficients ?? CoreML_Specification_Coefficients()}
-    set {_coefficients = newValue}
-  }
-  /// Returns true if `coefficients` has been explicitly set.
-  var hasCoefficients: Bool {return self._coefficients != nil}
-  /// Clears the value of `coefficients`. Subsequent reads from it will return its default value.
-  mutating func clearCoefficients() {self._coefficients = nil}
-
-  var rho: Double = 0
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  /// Support vectors, either sparse or dense format
-  enum OneOf_SupportVectors: Equatable {
-    case sparseSupportVectors(CoreML_Specification_SparseSupportVectors)
-    case denseSupportVectors(CoreML_Specification_DenseSupportVectors)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_SupportVectorRegressor.OneOf_SupportVectors, rhs: CoreML_Specification_SupportVectorRegressor.OneOf_SupportVectors) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.sparseSupportVectors, .sparseSupportVectors): return {
-        guard case .sparseSupportVectors(let l) = lhs, case .sparseSupportVectors(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.denseSupportVectors, .denseSupportVectors): return {
-        guard case .denseSupportVectors(let l) = lhs, case .denseSupportVectors(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
+    var denseSupportVectors: CoreML_Specification_DenseSupportVectors {
+        get {
+            if case let .denseSupportVectors(v)? = supportVectors { return v }
+            return CoreML_Specification_DenseSupportVectors()
+        }
+        set { supportVectors = .denseSupportVectors(newValue) }
     }
-  #endif
-  }
 
-  init() {}
+    /// Coefficients, one for each support vector
+    var coefficients: CoreML_Specification_Coefficients {
+        get { return _coefficients ?? CoreML_Specification_Coefficients() }
+        set { _coefficients = newValue }
+    }
 
-  fileprivate var _kernel: CoreML_Specification_Kernel? = nil
-  fileprivate var _coefficients: CoreML_Specification_Coefficients? = nil
+    /// Returns true if `coefficients` has been explicitly set.
+    var hasCoefficients: Bool { return self._coefficients != nil }
+    /// Clears the value of `coefficients`. Subsequent reads from it will return its default value.
+    mutating func clearCoefficients() { _coefficients = nil }
+
+    var rho: Double = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    /// Support vectors, either sparse or dense format
+    enum OneOf_SupportVectors: Equatable {
+        case sparseSupportVectors(CoreML_Specification_SparseSupportVectors)
+        case denseSupportVectors(CoreML_Specification_DenseSupportVectors)
+
+        #if !swift(>=4.1)
+            static func == (lhs: CoreML_Specification_SupportVectorRegressor.OneOf_SupportVectors, rhs: CoreML_Specification_SupportVectorRegressor.OneOf_SupportVectors) -> Bool {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch (lhs, rhs) {
+                case (.sparseSupportVectors, .sparseSupportVectors): return {
+                        guard case let .sparseSupportVectors(l) = lhs, case let .sparseSupportVectors(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.denseSupportVectors, .denseSupportVectors): return {
+                        guard case let .denseSupportVectors(l) = lhs, case let .denseSupportVectors(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                default: return false
+                }
+            }
+        #endif
+    }
+
+    init() {}
+
+    fileprivate var _kernel: CoreML_Specification_Kernel?
+    fileprivate var _coefficients: CoreML_Specification_Coefficients?
 }
 
-///*
+/// *
 /// A support vector classifier
 struct CoreML_Specification_SupportVectorClassifier {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var kernel: CoreML_Specification_Kernel {
-    get {return _kernel ?? CoreML_Specification_Kernel()}
-    set {_kernel = newValue}
-  }
-  /// Returns true if `kernel` has been explicitly set.
-  var hasKernel: Bool {return self._kernel != nil}
-  /// Clears the value of `kernel`. Subsequent reads from it will return its default value.
-  mutating func clearKernel() {self._kernel = nil}
-
-  ///*
-  /// The number of support vectors for each class.
-  var numberOfSupportVectorsPerClass: [Int32] = []
-
-  ///*
-  /// The support vectors, in either sparse or dense format.
-  var supportVectors: CoreML_Specification_SupportVectorClassifier.OneOf_SupportVectors? = nil
-
-  var sparseSupportVectors: CoreML_Specification_SparseSupportVectors {
-    get {
-      if case .sparseSupportVectors(let v)? = supportVectors {return v}
-      return CoreML_Specification_SparseSupportVectors()
+    var kernel: CoreML_Specification_Kernel {
+        get { return _kernel ?? CoreML_Specification_Kernel() }
+        set { _kernel = newValue }
     }
-    set {supportVectors = .sparseSupportVectors(newValue)}
-  }
 
-  var denseSupportVectors: CoreML_Specification_DenseSupportVectors {
-    get {
-      if case .denseSupportVectors(let v)? = supportVectors {return v}
-      return CoreML_Specification_DenseSupportVectors()
+    /// Returns true if `kernel` has been explicitly set.
+    var hasKernel: Bool { return self._kernel != nil }
+    /// Clears the value of `kernel`. Subsequent reads from it will return its default value.
+    mutating func clearKernel() { _kernel = nil }
+
+    /// *
+    /// The number of support vectors for each class.
+    var numberOfSupportVectorsPerClass: [Int32] = []
+
+    /// *
+    /// The support vectors, in either sparse or dense format.
+    var supportVectors: CoreML_Specification_SupportVectorClassifier.OneOf_SupportVectors?
+
+    var sparseSupportVectors: CoreML_Specification_SparseSupportVectors {
+        get {
+            if case let .sparseSupportVectors(v)? = supportVectors { return v }
+            return CoreML_Specification_SparseSupportVectors()
+        }
+        set { supportVectors = .sparseSupportVectors(newValue) }
     }
-    set {supportVectors = .denseSupportVectors(newValue)}
-  }
 
-  ///*
-  /// The coefficients, essentially a two dimensional array of
-  /// size: (numberOfClasses-1) by (total number of support vectors)
-  var coefficients: [CoreML_Specification_Coefficients] = []
-
-  ///*
-  /// Constants for decision function,
-  /// with K*(K-1) / 2 elements,
-  /// where K is the number of classes.
-  var rho: [Double] = []
-
-  ///*
-  /// Pairwise probability information for A vs B classifier.
-  /// Total of K*(K-1)/2 elements where K is the number of classes.
-  /// These fields are optional,
-  /// and only required if you want probabilities or multi class predictions.
-  var probA: [Double] = []
-
-  var probB: [Double] = []
-
-  ///*
-  /// Class label mapping.
-  var classLabels: CoreML_Specification_SupportVectorClassifier.OneOf_ClassLabels? = nil
-
-  var stringClassLabels: CoreML_Specification_StringVector {
-    get {
-      if case .stringClassLabels(let v)? = classLabels {return v}
-      return CoreML_Specification_StringVector()
+    var denseSupportVectors: CoreML_Specification_DenseSupportVectors {
+        get {
+            if case let .denseSupportVectors(v)? = supportVectors { return v }
+            return CoreML_Specification_DenseSupportVectors()
+        }
+        set { supportVectors = .denseSupportVectors(newValue) }
     }
-    set {classLabels = .stringClassLabels(newValue)}
-  }
 
-  var int64ClassLabels: CoreML_Specification_Int64Vector {
-    get {
-      if case .int64ClassLabels(let v)? = classLabels {return v}
-      return CoreML_Specification_Int64Vector()
+    /// *
+    /// The coefficients, essentially a two dimensional array of
+    /// size: (numberOfClasses-1) by (total number of support vectors)
+    var coefficients: [CoreML_Specification_Coefficients] = []
+
+    /// *
+    /// Constants for decision function,
+    /// with K*(K-1) / 2 elements,
+    /// where K is the number of classes.
+    var rho: [Double] = []
+
+    /// *
+    /// Pairwise probability information for A vs B classifier.
+    /// Total of K*(K-1)/2 elements where K is the number of classes.
+    /// These fields are optional,
+    /// and only required if you want probabilities or multi class predictions.
+    var probA: [Double] = []
+
+    var probB: [Double] = []
+
+    /// *
+    /// Class label mapping.
+    var classLabels: CoreML_Specification_SupportVectorClassifier.OneOf_ClassLabels?
+
+    var stringClassLabels: CoreML_Specification_StringVector {
+        get {
+            if case let .stringClassLabels(v)? = classLabels { return v }
+            return CoreML_Specification_StringVector()
+        }
+        set { classLabels = .stringClassLabels(newValue) }
     }
-    set {classLabels = .int64ClassLabels(newValue)}
-  }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  ///*
-  /// The support vectors, in either sparse or dense format.
-  enum OneOf_SupportVectors: Equatable {
-    case sparseSupportVectors(CoreML_Specification_SparseSupportVectors)
-    case denseSupportVectors(CoreML_Specification_DenseSupportVectors)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_SupportVectorClassifier.OneOf_SupportVectors, rhs: CoreML_Specification_SupportVectorClassifier.OneOf_SupportVectors) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.sparseSupportVectors, .sparseSupportVectors): return {
-        guard case .sparseSupportVectors(let l) = lhs, case .sparseSupportVectors(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.denseSupportVectors, .denseSupportVectors): return {
-        guard case .denseSupportVectors(let l) = lhs, case .denseSupportVectors(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
+    var int64ClassLabels: CoreML_Specification_Int64Vector {
+        get {
+            if case let .int64ClassLabels(v)? = classLabels { return v }
+            return CoreML_Specification_Int64Vector()
+        }
+        set { classLabels = .int64ClassLabels(newValue) }
     }
-  #endif
-  }
 
-  ///*
-  /// Class label mapping.
-  enum OneOf_ClassLabels: Equatable {
-    case stringClassLabels(CoreML_Specification_StringVector)
-    case int64ClassLabels(CoreML_Specification_Int64Vector)
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_SupportVectorClassifier.OneOf_ClassLabels, rhs: CoreML_Specification_SupportVectorClassifier.OneOf_ClassLabels) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.stringClassLabels, .stringClassLabels): return {
-        guard case .stringClassLabels(let l) = lhs, case .stringClassLabels(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.int64ClassLabels, .int64ClassLabels): return {
-        guard case .int64ClassLabels(let l) = lhs, case .int64ClassLabels(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
+    /// *
+    /// The support vectors, in either sparse or dense format.
+    enum OneOf_SupportVectors: Equatable {
+        case sparseSupportVectors(CoreML_Specification_SparseSupportVectors)
+        case denseSupportVectors(CoreML_Specification_DenseSupportVectors)
+
+        #if !swift(>=4.1)
+            static func == (lhs: CoreML_Specification_SupportVectorClassifier.OneOf_SupportVectors, rhs: CoreML_Specification_SupportVectorClassifier.OneOf_SupportVectors) -> Bool {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch (lhs, rhs) {
+                case (.sparseSupportVectors, .sparseSupportVectors): return {
+                        guard case let .sparseSupportVectors(l) = lhs, case let .sparseSupportVectors(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.denseSupportVectors, .denseSupportVectors): return {
+                        guard case let .denseSupportVectors(l) = lhs, case let .denseSupportVectors(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                default: return false
+                }
+            }
+        #endif
     }
-  #endif
-  }
 
-  init() {}
+    /// *
+    /// Class label mapping.
+    enum OneOf_ClassLabels: Equatable {
+        case stringClassLabels(CoreML_Specification_StringVector)
+        case int64ClassLabels(CoreML_Specification_Int64Vector)
 
-  fileprivate var _kernel: CoreML_Specification_Kernel? = nil
+        #if !swift(>=4.1)
+            static func == (lhs: CoreML_Specification_SupportVectorClassifier.OneOf_ClassLabels, rhs: CoreML_Specification_SupportVectorClassifier.OneOf_ClassLabels) -> Bool {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch (lhs, rhs) {
+                case (.stringClassLabels, .stringClassLabels): return {
+                        guard case let .stringClassLabels(l) = lhs, case let .stringClassLabels(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.int64ClassLabels, .int64ClassLabels): return {
+                        guard case let .int64ClassLabels(l) = lhs, case let .int64ClassLabels(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                default: return false
+                }
+            }
+        #endif
+    }
+
+    init() {}
+
+    fileprivate var _kernel: CoreML_Specification_Kernel?
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "CoreML.Specification"
+private let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_LinearKernel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LinearKernel"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    static let protoMessageName: String = _protobuf_package + ".LinearKernel"
+    static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let _ = try decoder.nextFieldNumber() {}
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        try unknownFields.traverse(visitor: &visitor)
+    }
 
-  static func ==(lhs: CoreML_Specification_LinearKernel, rhs: CoreML_Specification_LinearKernel) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_LinearKernel, rhs: CoreML_Specification_LinearKernel) -> Bool {
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_RBFKernel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RBFKernel"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "gamma"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".RBFKernel"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "gamma"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularDoubleField(value: &self.gamma) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularDoubleField(value: &gamma)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.gamma != 0 {
-      try visitor.visitSingularDoubleField(value: self.gamma, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if gamma != 0 {
+            try visitor.visitSingularDoubleField(value: gamma, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_RBFKernel, rhs: CoreML_Specification_RBFKernel) -> Bool {
-    if lhs.gamma != rhs.gamma {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_RBFKernel, rhs: CoreML_Specification_RBFKernel) -> Bool {
+        if lhs.gamma != rhs.gamma { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_PolyKernel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PolyKernel"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "degree"),
-    2: .same(proto: "c"),
-    3: .same(proto: "gamma"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".PolyKernel"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "degree"),
+        2: .same(proto: "c"),
+        3: .same(proto: "gamma"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.degree) }()
-      case 2: try { try decoder.decodeSingularDoubleField(value: &self.c) }()
-      case 3: try { try decoder.decodeSingularDoubleField(value: &self.gamma) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularInt32Field(value: &degree)
+            case 2: try try decoder.decodeSingularDoubleField(value: &c)
+            case 3: try try decoder.decodeSingularDoubleField(value: &gamma)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.degree != 0 {
-      try visitor.visitSingularInt32Field(value: self.degree, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if degree != 0 {
+            try visitor.visitSingularInt32Field(value: degree, fieldNumber: 1)
+        }
+        if c != 0 {
+            try visitor.visitSingularDoubleField(value: c, fieldNumber: 2)
+        }
+        if gamma != 0 {
+            try visitor.visitSingularDoubleField(value: gamma, fieldNumber: 3)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.c != 0 {
-      try visitor.visitSingularDoubleField(value: self.c, fieldNumber: 2)
-    }
-    if self.gamma != 0 {
-      try visitor.visitSingularDoubleField(value: self.gamma, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_PolyKernel, rhs: CoreML_Specification_PolyKernel) -> Bool {
-    if lhs.degree != rhs.degree {return false}
-    if lhs.c != rhs.c {return false}
-    if lhs.gamma != rhs.gamma {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_PolyKernel, rhs: CoreML_Specification_PolyKernel) -> Bool {
+        if lhs.degree != rhs.degree { return false }
+        if lhs.c != rhs.c { return false }
+        if lhs.gamma != rhs.gamma { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_SigmoidKernel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SigmoidKernel"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "gamma"),
-    2: .same(proto: "c"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SigmoidKernel"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "gamma"),
+        2: .same(proto: "c"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularDoubleField(value: &self.gamma) }()
-      case 2: try { try decoder.decodeSingularDoubleField(value: &self.c) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularDoubleField(value: &gamma)
+            case 2: try try decoder.decodeSingularDoubleField(value: &c)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.gamma != 0 {
-      try visitor.visitSingularDoubleField(value: self.gamma, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if gamma != 0 {
+            try visitor.visitSingularDoubleField(value: gamma, fieldNumber: 1)
+        }
+        if c != 0 {
+            try visitor.visitSingularDoubleField(value: c, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.c != 0 {
-      try visitor.visitSingularDoubleField(value: self.c, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_SigmoidKernel, rhs: CoreML_Specification_SigmoidKernel) -> Bool {
-    if lhs.gamma != rhs.gamma {return false}
-    if lhs.c != rhs.c {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_SigmoidKernel, rhs: CoreML_Specification_SigmoidKernel) -> Bool {
+        if lhs.gamma != rhs.gamma { return false }
+        if lhs.c != rhs.c { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_Kernel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Kernel"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "linearKernel"),
-    2: .same(proto: "rbfKernel"),
-    3: .same(proto: "polyKernel"),
-    4: .same(proto: "sigmoidKernel"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Kernel"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "linearKernel"),
+        2: .same(proto: "rbfKernel"),
+        3: .same(proto: "polyKernel"),
+        4: .same(proto: "sigmoidKernel"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try {
-        var v: CoreML_Specification_LinearKernel?
-        var hadOneofValue = false
-        if let current = self.kernel {
-          hadOneofValue = true
-          if case .linearKernel(let m) = current {v = m}
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try {
+                    var v: CoreML_Specification_LinearKernel?
+                    var hadOneofValue = false
+                    if let current = self.kernel {
+                        hadOneofValue = true
+                        if case let .linearKernel(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.kernel = .linearKernel(v)
+                    }
+                }()
+            case 2: try {
+                    var v: CoreML_Specification_RBFKernel?
+                    var hadOneofValue = false
+                    if let current = self.kernel {
+                        hadOneofValue = true
+                        if case let .rbfKernel(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.kernel = .rbfKernel(v)
+                    }
+                }()
+            case 3: try {
+                    var v: CoreML_Specification_PolyKernel?
+                    var hadOneofValue = false
+                    if let current = self.kernel {
+                        hadOneofValue = true
+                        if case let .polyKernel(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.kernel = .polyKernel(v)
+                    }
+                }()
+            case 4: try {
+                    var v: CoreML_Specification_SigmoidKernel?
+                    var hadOneofValue = false
+                    if let current = self.kernel {
+                        hadOneofValue = true
+                        if case let .sigmoidKernel(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.kernel = .sigmoidKernel(v)
+                    }
+                }()
+            default: break
+            }
         }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.kernel = .linearKernel(v)
-        }
-      }()
-      case 2: try {
-        var v: CoreML_Specification_RBFKernel?
-        var hadOneofValue = false
-        if let current = self.kernel {
-          hadOneofValue = true
-          if case .rbfKernel(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.kernel = .rbfKernel(v)
-        }
-      }()
-      case 3: try {
-        var v: CoreML_Specification_PolyKernel?
-        var hadOneofValue = false
-        if let current = self.kernel {
-          hadOneofValue = true
-          if case .polyKernel(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.kernel = .polyKernel(v)
-        }
-      }()
-      case 4: try {
-        var v: CoreML_Specification_SigmoidKernel?
-        var hadOneofValue = false
-        if let current = self.kernel {
-          hadOneofValue = true
-          if case .sigmoidKernel(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.kernel = .sigmoidKernel(v)
-        }
-      }()
-      default: break
-      }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.kernel {
-    case .linearKernel?: try {
-      guard case .linearKernel(let v)? = self.kernel else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }()
-    case .rbfKernel?: try {
-      guard case .rbfKernel(let v)? = self.kernel else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }()
-    case .polyKernel?: try {
-      guard case .polyKernel(let v)? = self.kernel else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    }()
-    case .sigmoidKernel?: try {
-      guard case .sigmoidKernel(let v)? = self.kernel else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    }()
-    case nil: break
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        switch kernel {
+        case .linearKernel?: try {
+                guard case let .linearKernel(v)? = self.kernel else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+            }()
+        case .rbfKernel?: try {
+                guard case let .rbfKernel(v)? = self.kernel else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+            }()
+        case .polyKernel?: try {
+                guard case let .polyKernel(v)? = self.kernel else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+            }()
+        case .sigmoidKernel?: try {
+                guard case let .sigmoidKernel(v)? = self.kernel else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+            }()
+        case nil: break
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_Kernel, rhs: CoreML_Specification_Kernel) -> Bool {
-    if lhs.kernel != rhs.kernel {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_Kernel, rhs: CoreML_Specification_Kernel) -> Bool {
+        if lhs.kernel != rhs.kernel { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_SparseNode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SparseNode"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "index"),
-    2: .same(proto: "value"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SparseNode"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "index"),
+        2: .same(proto: "value"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.index) }()
-      case 2: try { try decoder.decodeSingularDoubleField(value: &self.value) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularInt32Field(value: &index)
+            case 2: try try decoder.decodeSingularDoubleField(value: &value)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.index != 0 {
-      try visitor.visitSingularInt32Field(value: self.index, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if index != 0 {
+            try visitor.visitSingularInt32Field(value: index, fieldNumber: 1)
+        }
+        if value != 0 {
+            try visitor.visitSingularDoubleField(value: value, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.value != 0 {
-      try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_SparseNode, rhs: CoreML_Specification_SparseNode) -> Bool {
-    if lhs.index != rhs.index {return false}
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_SparseNode, rhs: CoreML_Specification_SparseNode) -> Bool {
+        if lhs.index != rhs.index { return false }
+        if lhs.value != rhs.value { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_SparseVector: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SparseVector"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "nodes"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SparseVector"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "nodes"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.nodes) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeRepeatedMessageField(value: &nodes)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.nodes.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.nodes, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if !nodes.isEmpty {
+            try visitor.visitRepeatedMessageField(value: nodes, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_SparseVector, rhs: CoreML_Specification_SparseVector) -> Bool {
-    if lhs.nodes != rhs.nodes {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_SparseVector, rhs: CoreML_Specification_SparseVector) -> Bool {
+        if lhs.nodes != rhs.nodes { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_SparseSupportVectors: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SparseSupportVectors"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "vectors"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SparseSupportVectors"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "vectors"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.vectors) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeRepeatedMessageField(value: &vectors)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.vectors.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.vectors, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if !vectors.isEmpty {
+            try visitor.visitRepeatedMessageField(value: vectors, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_SparseSupportVectors, rhs: CoreML_Specification_SparseSupportVectors) -> Bool {
-    if lhs.vectors != rhs.vectors {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_SparseSupportVectors, rhs: CoreML_Specification_SparseSupportVectors) -> Bool {
+        if lhs.vectors != rhs.vectors { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_DenseVector: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DenseVector"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "values"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".DenseVector"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "values"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedDoubleField(value: &self.values) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeRepeatedDoubleField(value: &values)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.values.isEmpty {
-      try visitor.visitPackedDoubleField(value: self.values, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if !values.isEmpty {
+            try visitor.visitPackedDoubleField(value: values, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_DenseVector, rhs: CoreML_Specification_DenseVector) -> Bool {
-    if lhs.values != rhs.values {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_DenseVector, rhs: CoreML_Specification_DenseVector) -> Bool {
+        if lhs.values != rhs.values { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_DenseSupportVectors: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DenseSupportVectors"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "vectors"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".DenseSupportVectors"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "vectors"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.vectors) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeRepeatedMessageField(value: &vectors)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.vectors.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.vectors, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if !vectors.isEmpty {
+            try visitor.visitRepeatedMessageField(value: vectors, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_DenseSupportVectors, rhs: CoreML_Specification_DenseSupportVectors) -> Bool {
-    if lhs.vectors != rhs.vectors {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_DenseSupportVectors, rhs: CoreML_Specification_DenseSupportVectors) -> Bool {
+        if lhs.vectors != rhs.vectors { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_Coefficients: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Coefficients"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "alpha"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Coefficients"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "alpha"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedDoubleField(value: &self.alpha) }()
-      default: break
-      }
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeRepeatedDoubleField(value: &alpha)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.alpha.isEmpty {
-      try visitor.visitPackedDoubleField(value: self.alpha, fieldNumber: 1)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if !alpha.isEmpty {
+            try visitor.visitPackedDoubleField(value: alpha, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_Coefficients, rhs: CoreML_Specification_Coefficients) -> Bool {
-    if lhs.alpha != rhs.alpha {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_Coefficients, rhs: CoreML_Specification_Coefficients) -> Bool {
+        if lhs.alpha != rhs.alpha { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_SupportVectorRegressor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SupportVectorRegressor"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "kernel"),
-    2: .same(proto: "sparseSupportVectors"),
-    3: .same(proto: "denseSupportVectors"),
-    4: .same(proto: "coefficients"),
-    5: .same(proto: "rho"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SupportVectorRegressor"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "kernel"),
+        2: .same(proto: "sparseSupportVectors"),
+        3: .same(proto: "denseSupportVectors"),
+        4: .same(proto: "coefficients"),
+        5: .same(proto: "rho"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._kernel) }()
-      case 2: try {
-        var v: CoreML_Specification_SparseSupportVectors?
-        var hadOneofValue = false
-        if let current = self.supportVectors {
-          hadOneofValue = true
-          if case .sparseSupportVectors(let m) = current {v = m}
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularMessageField(value: &_kernel)
+            case 2: try {
+                    var v: CoreML_Specification_SparseSupportVectors?
+                    var hadOneofValue = false
+                    if let current = self.supportVectors {
+                        hadOneofValue = true
+                        if case let .sparseSupportVectors(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.supportVectors = .sparseSupportVectors(v)
+                    }
+                }()
+            case 3: try {
+                    var v: CoreML_Specification_DenseSupportVectors?
+                    var hadOneofValue = false
+                    if let current = self.supportVectors {
+                        hadOneofValue = true
+                        if case let .denseSupportVectors(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.supportVectors = .denseSupportVectors(v)
+                    }
+                }()
+            case 4: try try decoder.decodeSingularMessageField(value: &_coefficients)
+            case 5: try try decoder.decodeSingularDoubleField(value: &rho)
+            default: break
+            }
         }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.supportVectors = .sparseSupportVectors(v)
-        }
-      }()
-      case 3: try {
-        var v: CoreML_Specification_DenseSupportVectors?
-        var hadOneofValue = false
-        if let current = self.supportVectors {
-          hadOneofValue = true
-          if case .denseSupportVectors(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.supportVectors = .denseSupportVectors(v)
-        }
-      }()
-      case 4: try { try decoder.decodeSingularMessageField(value: &self._coefficients) }()
-      case 5: try { try decoder.decodeSingularDoubleField(value: &self.rho) }()
-      default: break
-      }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._kernel {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    switch self.supportVectors {
-    case .sparseSupportVectors?: try {
-      guard case .sparseSupportVectors(let v)? = self.supportVectors else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }()
-    case .denseSupportVectors?: try {
-      guard case .denseSupportVectors(let v)? = self.supportVectors else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    }()
-    case nil: break
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._kernel {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        switch supportVectors {
+        case .sparseSupportVectors?: try {
+                guard case let .sparseSupportVectors(v)? = self.supportVectors else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+            }()
+        case .denseSupportVectors?: try {
+                guard case let .denseSupportVectors(v)? = self.supportVectors else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+            }()
+        case nil: break
+        }
+        try { if let v = self._coefficients {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+        } }()
+        if rho != 0 {
+            try visitor.visitSingularDoubleField(value: rho, fieldNumber: 5)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try { if let v = self._coefficients {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    } }()
-    if self.rho != 0 {
-      try visitor.visitSingularDoubleField(value: self.rho, fieldNumber: 5)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_SupportVectorRegressor, rhs: CoreML_Specification_SupportVectorRegressor) -> Bool {
-    if lhs._kernel != rhs._kernel {return false}
-    if lhs.supportVectors != rhs.supportVectors {return false}
-    if lhs._coefficients != rhs._coefficients {return false}
-    if lhs.rho != rhs.rho {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_SupportVectorRegressor, rhs: CoreML_Specification_SupportVectorRegressor) -> Bool {
+        if lhs._kernel != rhs._kernel { return false }
+        if lhs.supportVectors != rhs.supportVectors { return false }
+        if lhs._coefficients != rhs._coefficients { return false }
+        if lhs.rho != rhs.rho { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension CoreML_Specification_SupportVectorClassifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SupportVectorClassifier"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "kernel"),
-    2: .same(proto: "numberOfSupportVectorsPerClass"),
-    3: .same(proto: "sparseSupportVectors"),
-    4: .same(proto: "denseSupportVectors"),
-    5: .same(proto: "coefficients"),
-    6: .same(proto: "rho"),
-    7: .same(proto: "probA"),
-    8: .same(proto: "probB"),
-    100: .same(proto: "stringClassLabels"),
-    101: .same(proto: "int64ClassLabels"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SupportVectorClassifier"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "kernel"),
+        2: .same(proto: "numberOfSupportVectorsPerClass"),
+        3: .same(proto: "sparseSupportVectors"),
+        4: .same(proto: "denseSupportVectors"),
+        5: .same(proto: "coefficients"),
+        6: .same(proto: "rho"),
+        7: .same(proto: "probA"),
+        8: .same(proto: "probB"),
+        100: .same(proto: "stringClassLabels"),
+        101: .same(proto: "int64ClassLabels"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._kernel) }()
-      case 2: try { try decoder.decodeRepeatedInt32Field(value: &self.numberOfSupportVectorsPerClass) }()
-      case 3: try {
-        var v: CoreML_Specification_SparseSupportVectors?
-        var hadOneofValue = false
-        if let current = self.supportVectors {
-          hadOneofValue = true
-          if case .sparseSupportVectors(let m) = current {v = m}
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try try decoder.decodeSingularMessageField(value: &_kernel)
+            case 2: try try decoder.decodeRepeatedInt32Field(value: &numberOfSupportVectorsPerClass)
+            case 3: try {
+                    var v: CoreML_Specification_SparseSupportVectors?
+                    var hadOneofValue = false
+                    if let current = self.supportVectors {
+                        hadOneofValue = true
+                        if case let .sparseSupportVectors(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.supportVectors = .sparseSupportVectors(v)
+                    }
+                }()
+            case 4: try {
+                    var v: CoreML_Specification_DenseSupportVectors?
+                    var hadOneofValue = false
+                    if let current = self.supportVectors {
+                        hadOneofValue = true
+                        if case let .denseSupportVectors(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.supportVectors = .denseSupportVectors(v)
+                    }
+                }()
+            case 5: try try decoder.decodeRepeatedMessageField(value: &coefficients)
+            case 6: try try decoder.decodeRepeatedDoubleField(value: &rho)
+            case 7: try try decoder.decodeRepeatedDoubleField(value: &probA)
+            case 8: try try decoder.decodeRepeatedDoubleField(value: &probB)
+            case 100: try {
+                    var v: CoreML_Specification_StringVector?
+                    var hadOneofValue = false
+                    if let current = self.classLabels {
+                        hadOneofValue = true
+                        if case let .stringClassLabels(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.classLabels = .stringClassLabels(v)
+                    }
+                }()
+            case 101: try {
+                    var v: CoreML_Specification_Int64Vector?
+                    var hadOneofValue = false
+                    if let current = self.classLabels {
+                        hadOneofValue = true
+                        if case let .int64ClassLabels(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.classLabels = .int64ClassLabels(v)
+                    }
+                }()
+            default: break
+            }
         }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.supportVectors = .sparseSupportVectors(v)
-        }
-      }()
-      case 4: try {
-        var v: CoreML_Specification_DenseSupportVectors?
-        var hadOneofValue = false
-        if let current = self.supportVectors {
-          hadOneofValue = true
-          if case .denseSupportVectors(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.supportVectors = .denseSupportVectors(v)
-        }
-      }()
-      case 5: try { try decoder.decodeRepeatedMessageField(value: &self.coefficients) }()
-      case 6: try { try decoder.decodeRepeatedDoubleField(value: &self.rho) }()
-      case 7: try { try decoder.decodeRepeatedDoubleField(value: &self.probA) }()
-      case 8: try { try decoder.decodeRepeatedDoubleField(value: &self.probB) }()
-      case 100: try {
-        var v: CoreML_Specification_StringVector?
-        var hadOneofValue = false
-        if let current = self.classLabels {
-          hadOneofValue = true
-          if case .stringClassLabels(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.classLabels = .stringClassLabels(v)
-        }
-      }()
-      case 101: try {
-        var v: CoreML_Specification_Int64Vector?
-        var hadOneofValue = false
-        if let current = self.classLabels {
-          hadOneofValue = true
-          if case .int64ClassLabels(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.classLabels = .int64ClassLabels(v)
-        }
-      }()
-      default: break
-      }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._kernel {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    if !self.numberOfSupportVectorsPerClass.isEmpty {
-      try visitor.visitPackedInt32Field(value: self.numberOfSupportVectorsPerClass, fieldNumber: 2)
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._kernel {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        if !numberOfSupportVectorsPerClass.isEmpty {
+            try visitor.visitPackedInt32Field(value: numberOfSupportVectorsPerClass, fieldNumber: 2)
+        }
+        switch supportVectors {
+        case .sparseSupportVectors?: try {
+                guard case let .sparseSupportVectors(v)? = self.supportVectors else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+            }()
+        case .denseSupportVectors?: try {
+                guard case let .denseSupportVectors(v)? = self.supportVectors else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+            }()
+        case nil: break
+        }
+        if !coefficients.isEmpty {
+            try visitor.visitRepeatedMessageField(value: coefficients, fieldNumber: 5)
+        }
+        if !rho.isEmpty {
+            try visitor.visitPackedDoubleField(value: rho, fieldNumber: 6)
+        }
+        if !probA.isEmpty {
+            try visitor.visitPackedDoubleField(value: probA, fieldNumber: 7)
+        }
+        if !probB.isEmpty {
+            try visitor.visitPackedDoubleField(value: probB, fieldNumber: 8)
+        }
+        switch classLabels {
+        case .stringClassLabels?: try {
+                guard case let .stringClassLabels(v)? = self.classLabels else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 100)
+            }()
+        case .int64ClassLabels?: try {
+                guard case let .int64ClassLabels(v)? = self.classLabels else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 101)
+            }()
+        case nil: break
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    switch self.supportVectors {
-    case .sparseSupportVectors?: try {
-      guard case .sparseSupportVectors(let v)? = self.supportVectors else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    }()
-    case .denseSupportVectors?: try {
-      guard case .denseSupportVectors(let v)? = self.supportVectors else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    }()
-    case nil: break
-    }
-    if !self.coefficients.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.coefficients, fieldNumber: 5)
-    }
-    if !self.rho.isEmpty {
-      try visitor.visitPackedDoubleField(value: self.rho, fieldNumber: 6)
-    }
-    if !self.probA.isEmpty {
-      try visitor.visitPackedDoubleField(value: self.probA, fieldNumber: 7)
-    }
-    if !self.probB.isEmpty {
-      try visitor.visitPackedDoubleField(value: self.probB, fieldNumber: 8)
-    }
-    switch self.classLabels {
-    case .stringClassLabels?: try {
-      guard case .stringClassLabels(let v)? = self.classLabels else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 100)
-    }()
-    case .int64ClassLabels?: try {
-      guard case .int64ClassLabels(let v)? = self.classLabels else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 101)
-    }()
-    case nil: break
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_SupportVectorClassifier, rhs: CoreML_Specification_SupportVectorClassifier) -> Bool {
-    if lhs._kernel != rhs._kernel {return false}
-    if lhs.numberOfSupportVectorsPerClass != rhs.numberOfSupportVectorsPerClass {return false}
-    if lhs.supportVectors != rhs.supportVectors {return false}
-    if lhs.coefficients != rhs.coefficients {return false}
-    if lhs.rho != rhs.rho {return false}
-    if lhs.probA != rhs.probA {return false}
-    if lhs.probB != rhs.probB {return false}
-    if lhs.classLabels != rhs.classLabels {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_SupportVectorClassifier, rhs: CoreML_Specification_SupportVectorClassifier) -> Bool {
+        if lhs._kernel != rhs._kernel { return false }
+        if lhs.numberOfSupportVectorsPerClass != rhs.numberOfSupportVectorsPerClass { return false }
+        if lhs.supportVectors != rhs.supportVectors { return false }
+        if lhs.coefficients != rhs.coefficients { return false }
+        if lhs.rho != rhs.rho { return false }
+        if lhs.probA != rhs.probA { return false }
+        if lhs.probB != rhs.probB { return false }
+        if lhs.classLabels != rhs.classLabels { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }

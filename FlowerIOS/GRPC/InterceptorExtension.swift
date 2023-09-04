@@ -1,6 +1,6 @@
 //
-//  FlwrGRPCInterceptor.swift
-//  
+//  InterceptorExtension.swift
+//
 //
 //  Created by Christoph Weinhuber on 20.01.23.
 //

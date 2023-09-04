@@ -18,23 +18,22 @@ import Foundation
 /// - ``fit(ins:)``
 /// - ``evaluate(ins:)``
 public protocol Client {
-    
     /// Return the current local model parameters.
     func getParameters() -> GetParametersRes
-    
+
     /// Return set of client properties.
     func getProperties(ins: GetPropertiesIns) -> GetPropertiesRes
-    
+
     /// Refine the provided parameters using the locally held dataset.
     func fit(ins: FitIns) -> FitRes
-    
+
     /// Evaluate the provided parameters using the locally held dataset.
     func evaluate(ins: EvaluateIns) -> EvaluateRes
 }
 
 public extension Client {
     /// Extension to Client since per default GetPropertiesIns is not implemented.
-    func getProperties(ins: GetPropertiesIns) -> GetPropertiesRes {
+    func getProperties(ins _: GetPropertiesIns) -> GetPropertiesRes {
         return GetPropertiesRes(properties: [:], status: Status(code: .getPropertiesNotImplemented, message: String()))
     }
 }

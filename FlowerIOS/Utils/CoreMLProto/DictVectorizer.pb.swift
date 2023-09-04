@@ -20,12 +20,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+    typealias Version = _2
 }
 
-///*
+/// *
 /// Uses an index mapping to convert a dictionary to an array.
 ///
 /// The output array will be equal in length to the index mapping vector parameter.
@@ -39,131 +39,131 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// For example: if the ``stringToIndex`` parameter is set to ``["a", "c", "b", "z"]``,
 /// then an input of ``{"a": 4, "c": 8}`` will produce an output of ``[4, 8, 0, 0]``.
 struct CoreML_Specification_DictVectorizer {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var map: CoreML_Specification_DictVectorizer.OneOf_Map? = nil
+    var map: CoreML_Specification_DictVectorizer.OneOf_Map?
 
-  //// String keys to indexes
-  var stringToIndex: CoreML_Specification_StringVector {
-    get {
-      if case .stringToIndex(let v)? = map {return v}
-      return CoreML_Specification_StringVector()
-    }
-    set {map = .stringToIndex(newValue)}
-  }
-
-  //// Int keys to indexes
-  var int64ToIndex: CoreML_Specification_Int64Vector {
-    get {
-      if case .int64ToIndex(let v)? = map {return v}
-      return CoreML_Specification_Int64Vector()
-    }
-    set {map = .int64ToIndex(newValue)}
-  }
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  enum OneOf_Map: Equatable {
     //// String keys to indexes
-    case stringToIndex(CoreML_Specification_StringVector)
-    //// Int keys to indexes
-    case int64ToIndex(CoreML_Specification_Int64Vector)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: CoreML_Specification_DictVectorizer.OneOf_Map, rhs: CoreML_Specification_DictVectorizer.OneOf_Map) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.stringToIndex, .stringToIndex): return {
-        guard case .stringToIndex(let l) = lhs, case .stringToIndex(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.int64ToIndex, .int64ToIndex): return {
-        guard case .int64ToIndex(let l) = lhs, case .int64ToIndex(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
+    var stringToIndex: CoreML_Specification_StringVector {
+        get {
+            if case let .stringToIndex(v)? = map { return v }
+            return CoreML_Specification_StringVector()
+        }
+        set { map = .stringToIndex(newValue) }
     }
-  #endif
-  }
 
-  init() {}
+    //// Int keys to indexes
+    var int64ToIndex: CoreML_Specification_Int64Vector {
+        get {
+            if case let .int64ToIndex(v)? = map { return v }
+            return CoreML_Specification_Int64Vector()
+        }
+        set { map = .int64ToIndex(newValue) }
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    enum OneOf_Map: Equatable {
+        //// String keys to indexes
+        case stringToIndex(CoreML_Specification_StringVector)
+        //// Int keys to indexes
+        case int64ToIndex(CoreML_Specification_Int64Vector)
+
+        #if !swift(>=4.1)
+            static func == (lhs: CoreML_Specification_DictVectorizer.OneOf_Map, rhs: CoreML_Specification_DictVectorizer.OneOf_Map) -> Bool {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch (lhs, rhs) {
+                case (.stringToIndex, .stringToIndex): return {
+                        guard case let .stringToIndex(l) = lhs, case let .stringToIndex(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.int64ToIndex, .int64ToIndex): return {
+                        guard case let .int64ToIndex(l) = lhs, case let .int64ToIndex(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                default: return false
+                }
+            }
+        #endif
+    }
+
+    init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "CoreML.Specification"
+private let _protobuf_package = "CoreML.Specification"
 
 extension CoreML_Specification_DictVectorizer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DictVectorizer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "stringToIndex"),
-    2: .same(proto: "int64ToIndex"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".DictVectorizer"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "stringToIndex"),
+        2: .same(proto: "int64ToIndex"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try {
-        var v: CoreML_Specification_StringVector?
-        var hadOneofValue = false
-        if let current = self.map {
-          hadOneofValue = true
-          if case .stringToIndex(let m) = current {v = m}
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try {
+                    var v: CoreML_Specification_StringVector?
+                    var hadOneofValue = false
+                    if let current = self.map {
+                        hadOneofValue = true
+                        if case let .stringToIndex(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.map = .stringToIndex(v)
+                    }
+                }()
+            case 2: try {
+                    var v: CoreML_Specification_Int64Vector?
+                    var hadOneofValue = false
+                    if let current = self.map {
+                        hadOneofValue = true
+                        if case let .int64ToIndex(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v = v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.map = .int64ToIndex(v)
+                    }
+                }()
+            default: break
+            }
         }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.map = .stringToIndex(v)
-        }
-      }()
-      case 2: try {
-        var v: CoreML_Specification_Int64Vector?
-        var hadOneofValue = false
-        if let current = self.map {
-          hadOneofValue = true
-          if case .int64ToIndex(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.map = .int64ToIndex(v)
-        }
-      }()
-      default: break
-      }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.map {
-    case .stringToIndex?: try {
-      guard case .stringToIndex(let v)? = self.map else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }()
-    case .int64ToIndex?: try {
-      guard case .int64ToIndex(let v)? = self.map else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }()
-    case nil: break
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        switch map {
+        case .stringToIndex?: try {
+                guard case let .stringToIndex(v)? = self.map else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+            }()
+        case .int64ToIndex?: try {
+                guard case let .int64ToIndex(v)? = self.map else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+            }()
+        case nil: break
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: CoreML_Specification_DictVectorizer, rhs: CoreML_Specification_DictVectorizer) -> Bool {
-    if lhs.map != rhs.map {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: CoreML_Specification_DictVectorizer, rhs: CoreML_Specification_DictVectorizer) -> Bool {
+        if lhs.map != rhs.map { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }

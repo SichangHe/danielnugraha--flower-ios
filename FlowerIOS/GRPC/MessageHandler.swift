@@ -37,7 +37,7 @@ func handle(client: Client, serverMsg: Flwr_Proto_ServerMessage) throws -> (Flwr
 /// Handle for the server message that initiates a reconnection.
 func reconnect(reconnectMsg: Flwr_Proto_ServerMessage.ReconnectIns) -> (Flwr_Proto_ClientMessage, Int) {
     var reason: Flwr_Proto_Reason = .ack
-    var sleepDuration: Int = 0
+    var sleepDuration = 0
     if reconnectMsg.seconds != 0 {
         reason = .reconnect
         sleepDuration = Int(reconnectMsg.seconds)
@@ -47,7 +47,7 @@ func reconnect(reconnectMsg: Flwr_Proto_ServerMessage.ReconnectIns) -> (Flwr_Pro
     var ret = Flwr_Proto_ClientMessage()
     ret.disconnectRes = disconnect
     return (ret, sleepDuration)
- }
+}
 
 /// Handle for the server message that requests the local model parameters.
 func getParameters(client: Client) -> Flwr_Proto_ClientMessage {

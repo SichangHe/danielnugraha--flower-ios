@@ -21,45 +21,45 @@ import Foundation
 /// - ``UNRECOGNIZED(_:)``
 public enum Code: Equatable {
     typealias RawValue = Int
-    
+
     /// Everything is okay status code.
     case ok
-    
+
     /// No client implementation for getProperties status code.
     case getPropertiesNotImplemented
-    
+
     /// No client implementation for getParameters status code.
     case getParametersNotImplemented
-    
+
     /// No client implementation for fit status code.
     case fitNotImplemented
-    
+
     /// No client implementation for evaluate status code.
     case evaluateNotImplemented
-    
+
     /// Unrecognized client status code.
     case UNRECOGNIZED(Int)
-    
+
     init(rawValue: Int) {
         switch rawValue {
-            case 0: self = .ok
-            case 1: self = .getPropertiesNotImplemented
-            case 2: self = .getParametersNotImplemented
-            case 3: self = .fitNotImplemented
-            case 4: self = .evaluateNotImplemented
-            default: self = .UNRECOGNIZED(rawValue)
+        case 0: self = .ok
+        case 1: self = .getPropertiesNotImplemented
+        case 2: self = .getParametersNotImplemented
+        case 3: self = .fitNotImplemented
+        case 4: self = .evaluateNotImplemented
+        default: self = .UNRECOGNIZED(rawValue)
         }
     }
-    
+
     var rawValue: Int {
-      switch self {
-      case .ok: return 0
-      case .getPropertiesNotImplemented: return 1
-      case .getParametersNotImplemented: return 2
-      case .fitNotImplemented: return 3
-      case .evaluateNotImplemented: return 4
-      case .UNRECOGNIZED(let i): return i
-      }
+        switch self {
+        case .ok: return 0
+        case .getPropertiesNotImplemented: return 1
+        case .getParametersNotImplemented: return 2
+        case .fitNotImplemented: return 3
+        case .evaluateNotImplemented: return 4
+        case let .UNRECOGNIZED(i): return i
+        }
     }
 }
 
@@ -77,34 +77,34 @@ public enum Code: Equatable {
 /// - ``UNRECOGNIZED(_:)``
 public enum ReasonDisconnect {
     typealias RawValue = Int
-    
+
     /// Unknown disconnect reason.
     case unknown // = 0
-    
+
     /// Reconnect disconnect reason.
     case reconnect // = 1
-    
+
     /// Power disconnected disconnect reason.
     case powerDisconnected // = 2
-    
+
     /// WiFi unavailable disconnect reason.
     case wifiUnavailable // = 3
-    
+
     /// Acknowledge disconnect reason.
     case ack // = 4
-    
+
     /// Unrecognized disconnect reason.
     case UNRECOGNIZED(Int)
 
     var rawValue: Int {
-      switch self {
-      case .unknown: return 0
-      case .reconnect: return 1
-      case .powerDisconnected: return 2
-      case .wifiUnavailable: return 3
-      case .ack: return 4
-      case .UNRECOGNIZED(let i): return i
-      }
+        switch self {
+        case .unknown: return 0
+        case .reconnect: return 1
+        case .powerDisconnected: return 2
+        case .wifiUnavailable: return 3
+        case .ack: return 4
+        case let .UNRECOGNIZED(i): return i
+        }
     }
 }
 
@@ -120,19 +120,18 @@ public enum ReasonDisconnect {
 /// - ``int``
 /// - ``str``
 public struct Scalar: Equatable {
-    
     /// Boolean scalar value.
     public var bool: Bool?
-    
+
     /// Raw bytes scalar value.
     public var bytes: Data?
-    
+
     /// Float scalar value.
     public var float: Float?
-    
+
     /// Integer scalar value.
     public var int: Int?
-    
+
     /// String scalar value.
     public var str: String?
 }
@@ -143,7 +142,6 @@ public typealias Metrics = [String: Scalar]
 /// Typealias for a dictionary containing String and Scalar key-value pairs.
 public typealias Properties = [String: Scalar]
 
-
 /// Client status.
 public struct Status: Equatable {
     public static func == (lhs: Status, rhs: Status) -> Bool {
@@ -152,10 +150,10 @@ public struct Status: Equatable {
         }
         return false
     }
-    
+
     public var code: Code
     public var message: String
-    
+
     public init(code: Code, message: String) {
         self.code = code
         self.message = message
@@ -166,7 +164,7 @@ public struct Status: Equatable {
 public struct Parameters: Equatable {
     public var tensors: [Data]
     public var tensorType: String
-    
+
     public init(tensors: [Data], tensorType: String) {
         self.tensors = tensors
         self.tensorType = tensorType
@@ -177,7 +175,7 @@ public struct Parameters: Equatable {
 public struct GetParametersRes: Equatable {
     public var parameters: Parameters
     public var status: Status
-    
+
     public init(parameters: Parameters, status: Status) {
         self.parameters = parameters
         self.status = status
@@ -196,7 +194,7 @@ public struct FitRes: Equatable {
     public var numExamples: Int
     public var metrics: Metrics? = nil
     public var status: Status
-    
+
     public init(parameters: Parameters, numExamples: Int, metrics: Metrics? = nil, status: Status) {
         self.parameters = parameters
         self.numExamples = numExamples
@@ -219,12 +217,12 @@ public struct EvaluateRes: Equatable {
         }
         return false
     }
-    
+
     public var loss: Float
     public var numExamples: Int
     public var metrics: Metrics? = nil
     public var status: Status
-    
+
     public init(loss: Float, numExamples: Int, metrics: Metrics? = nil, status: Status) {
         self.loss = loss
         self.numExamples = numExamples

@@ -108,7 +108,7 @@ func fitResToProto(res: FitRes) -> Flwr_Proto_ClientMessage.FitRes {
     var ret = Flwr_Proto_ClientMessage.FitRes()
     let parameters = parametersToProto(parameters: res.parameters)
     if let metrics = res.metrics {
-       ret.metrics = metricsToProto(metrics: metrics)
+        ret.metrics = metricsToProto(metrics: metrics)
     }
     ret.parameters = parameters
     ret.numExamples = Int64(res.numExamples)
@@ -246,7 +246,7 @@ func scalarFromProto(scalarMsg: Flwr_Proto_Scalar) throws -> Scalar {
         ret.bytes = scalarMsg.bytes
     case .sint64:
         ret.int = Int(scalarMsg.sint64)
-    case.string:
+    case .string:
         ret.str = scalarMsg.string
     default:
         throw FlowerException.TypeException("Accepted Types : Bool, Data, Float, Int, Str")
