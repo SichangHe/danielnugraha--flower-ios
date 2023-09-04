@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import flwr
 
 struct MLModelInspect {
     

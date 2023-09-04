@@ -6,7 +6,6 @@
 //
 
 import CoreML
-import flwr
 import Foundation
 
 public class AppLogic: ObservableObject {
