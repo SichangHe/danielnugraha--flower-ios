@@ -134,13 +134,9 @@ public class ParameterConverter {
         guard let shape = [Int](pyShape) else { return nil }
         let shapeNSNumber = shape.map { NSNumber(value: $0) }
 
-        if let swiftArray = numpyToArray(numpy: numpy),
-           let multiArray = try? MLMultiArray(shape: shapeNSNumber, dataType: .float)
-        {
-            for (index, element) in swiftArray.enumerated() {
-                multiArray[index] = NSNumber(value: element)
-            }
-            return multiArray
+        if let swiftArray = numpyToArray(numpy: numpy) {
+            let shapedArray = MLShapedArray(scalars: swiftArray, shape: shapeNSNumber.map { Int(truncating: $0) })
+            return MLMultiArray(shapedArray)
         }
         return nil
     }
